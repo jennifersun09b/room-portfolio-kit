@@ -1,0 +1,13 @@
+# Your own work never gets uploaded by accident
+RoomKit Projects/
+portfolio_*/
+my_portfolio/
+# AI keys (Studio keeps them in ~/.roomkit/keys.json, outside the kit) - just in case
+keys.json
+.roomkit/
+# Blender and Python leftovers
+*.blend1
+__pycache__/
+*.pyc
+tools/studio/cache/
+.DS_Store

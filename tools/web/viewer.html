@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:image" content="og.png">
+<style>
+:root{--bg:#f5f2ee;--ink:#24212b;--accent:#7c6cf2;--on:#fff;--card:rgba(255,255,255,.78);--line:rgba(0,0,0,.08)}
+.dark{--ink:#f1f1f6;--card:rgba(20,20,28,.72);--line:rgba(255,255,255,.12)}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);
+  font:15px/1.5 ui-rounded,"SF Pro Rounded",system-ui,-apple-system,"Segoe UI",sans-serif}
+canvas{display:block;width:100vw;height:100vh;height:100dvh;touch-action:none;outline:none}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.card{background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:18px}
+#about{position:fixed;left:16px;top:16px;max-width:min(360px,calc(100vw - 32px));padding:14px 18px}
+#about h1{margin:0;font-size:clamp(20px,3vw,28px);line-height:1.15}
+#about .role{color:var(--accent);font-weight:700}
+#about p{margin:4px 0 8px;opacity:.85}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{border:1px solid var(--line);background:transparent;border-radius:99px;padding:3px 11px;font-weight:600;font-size:13px;text-decoration:none;cursor:pointer}
+.pill.main{background:var(--accent);border-color:var(--accent);color:var(--on)}
+#corner{position:fixed;right:16px;top:16px;display:flex;gap:8px}
+#corner a{padding:6px 12px;font-size:13px;font-weight:600;text-decoration:none}
+#hint{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);padding:7px 16px;font-size:13px;width:max-content;max-width:calc(100vw - 32px);text-align:center;transition:opacity .6s}
+#tip{position:fixed;pointer-events:none;background:var(--accent);color:var(--on);font-weight:700;font-size:13px;padding:4px 11px;border-radius:99px;
+  transform:translate(-50%,-150%);opacity:0;transition:opacity .15s;white-space:nowrap}
+.dot{position:fixed;width:26px;height:26px;margin:-13px 0 0 -13px;border:0;padding:0;background:transparent;cursor:pointer}
+.dot::before{content:"";position:absolute;inset:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 2px #fff}
+.dot::after{content:"";position:absolute;inset:8px;border-radius:50%;border:2px solid var(--accent);animation:ring 2.2s infinite}
+.dot:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:50%}
+.dot.hide{opacity:0;pointer-events:none}
+@keyframes ring{0%{transform:scale(1);opacity:.9}80%,100%{transform:scale(2.6);opacity:0}}
+#modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.35)}
+#modal.open{display:flex}
+#modal .card{width:min(560px,100%);max-height:calc(100dvh - 32px);overflow:auto;padding:0;background:var(--bg)}
+#modal img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-radius:18px 18px 0 0;background:var(--line)}
+#modal .body{padding:14px 20px 18px}
+#modal h2{margin:0 0 4px}
+#modal .row{display:flex;gap:8px;align-items:center;margin-top:12px;flex-wrap:wrap}
+#modal .row .grow{flex:1}
+#loader{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:var(--bg);transition:opacity .6s}
+#loader .bar{width:200px;height:6px;border-radius:9px;background:var(--line);overflow:hidden}
+#loader .bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
+#loader.done{opacity:0;pointer-events:none}
+#error{display:none;max-width:420px;text-align:center;padding:0 16px}
+@media (max-width:640px){#about{padding:10px 14px}#about p{display:none}#corner{top:auto;bottom:56px;right:12px}#hint{font-size:12px}}
+@media (prefers-reduced-motion:reduce){.dot::after{animation:none}}
+</style>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@{{THREE}}/build/three.module.js",
+"three/addons/":"https://cdn.jsdelivr.net/npm/three@{{THREE}}/examples/jsm/"}}
+</script>
+</head>
+<body>
+<canvas id="c" tabindex="0" aria-label="Interactive 3D room. Drag to turn, scroll or pinch to zoom."></canvas>
+<section id="about" class="card"></section>
+<nav id="corner"><a class="card" href="index.html">2D version</a></nav>
+<div id="hint" class="card">Drag to look around · scroll to zoom · click the glowing dots</div>
+<div id="tip"></div>
+<div id="dots"></div>
+<div id="modal" role="dialog" aria-modal="true" aria-labelledby="mtitle"><div class="card">
+  <img id="mimg" alt="">
+  <div class="body"><h2 id="mtitle"></h2><div id="mdesc"></div>
+    <div class="row"><a id="mlink" class="pill main" target="_blank" rel="noopener">Open project ↗</a><span class="grow"></span>
+      <button class="pill" id="mprev" aria-label="Previous project">←</button><button class="pill" id="mnext" aria-label="Next project">→</button>
+      <button class="pill" id="mclose">Close</button></div></div></div></div>
+<div id="loader"><strong id="lname"></strong><div class="bar"><i id="lbar"></i></div><div id="error"></div></div>
+<script id="config" type="application/json">{{CONFIG}}</script>
+<script id="embed" type="application/json">{{EMBED}}</script>
+<script>
+// If the 3D engine can't be downloaded (offline, or a school/office network blocks the CDN), say so in plain words.
+setTimeout(() => {
+  if (window.roomkitStarted) return;
+  const el = document.getElementById('error');
+  el.style.display = 'block';
+  el.innerHTML = 'The 3D engine could not be downloaded. This page needs an internet connection the first time ' +
+    '(some school and office networks block it).<br><br><a href="index.html">Open the 2D version</a>';
+}, 20000);
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+
+window.roomkitStarted = true;
+const C = JSON.parse(document.getElementById('config').textContent);
+const P = C.profile, S = C.scene, V = S.view;
+const $ = id => document.getElementById(id);
+// Single-file pages carry the room, light map and images inside (data: URIs), so double-clicking the file works.
+let E = {};
+try { E = JSON.parse($('embed').textContent || '{}'); } catch (err) { E = {}; }
+const file = path => (path && E[path]) || path;
+const fileName = url => (url && url.startsWith('data:')) ? (Object.keys(E).find(k => E[k] === url) || 'an embedded file') : url;
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.documentElement.style.setProperty('--bg', C.bg);
+document.documentElement.style.setProperty('--accent', C.accent);
+const lum = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255).reduce((a, c, i) => a + c * [0.299, 0.587, 0.114][i], 0);
+document.documentElement.style.setProperty('--on', lum(C.accent) > 0.6 ? '#1d1b22' : '#fff');   // readable text on the accent
+if (C.dark) document.documentElement.classList.add('dark');
+$('lname').textContent = P.name || 'Loading room';
+if (matchMedia('(pointer: coarse)').matches) $('hint').textContent = 'Drag to turn · pinch to zoom · tap the dots';
+
+// ---------------------------------------------------------------- profile card
+const LINK_NAMES = {email: 'Email', github: 'GitHub', linkedin: 'LinkedIn', website: 'Website', behance: 'Behance',
+  dribbble: 'Dribbble', instagram: 'Instagram', etsy: 'Etsy', kofi: 'Ko-fi', twitch: 'Twitch', youtube: 'YouTube'};
+const links = Object.entries(P.links || {}).map(([k, v]) =>
+  `<a class="pill" href="${esc(v)}" target="_blank" rel="noopener">${esc(LINK_NAMES[k] || k)}</a>`).join('');
+$('about').innerHTML = `<h1>${esc(P.name)}</h1><div class="role">${esc(P.role)}</div><p>${esc(P.tagline)}</p>
+  <div class="pills">${(P.projects || []).length ? '<button class="pill main" id="work">My work</button>' : ''}${links}</div>`;
+$('work')?.addEventListener('click', () => openProject(0));
+
+// ---------------------------------------------------------------- project modal
+let current = -1, lastFocus = null;
+function openProject(i) {
+  const list = P.projects || [];
+  if (!list.length) return;
+  current = (i + list.length) % list.length;
+  const pr = list[current];
+  $('mimg').src = file(pr.image) || ''; $('mimg').style.display = pr.image ? 'block' : 'none'; $('mimg').alt = pr.title || '';
+  $('mtitle').textContent = pr.title || ''; $('mdesc').textContent = pr.description || '';
+  $('mlink').style.display = pr.url ? '' : 'none'; if (pr.url) $('mlink').href = pr.url;
+  if (!$('modal').classList.contains('open')) lastFocus = document.activeElement;
+  clickables.forEach(c => { c.hot = false; }); hideTip();
+  $('modal').classList.add('open'); $('mclose').focus();
+}
+function closeProject() { $('modal').classList.remove('open'); current = -1; lastFocus?.focus?.(); }
+$('mclose').onclick = closeProject;
+$('mprev').onclick = () => openProject(current - 1);
+$('mnext').onclick = () => openProject(current + 1);
+$('modal').addEventListener('click', ev => { if (ev.target === $('modal')) closeProject(); });
+addEventListener('keydown', ev => {
+  if (current < 0) return;
+  if (ev.key === 'Escape') closeProject();
+  if (ev.key === 'ArrowRight') openProject(current + 1);
+  if (ev.key === 'ArrowLeft') openProject(current - 1);
+});
+function activate(info) {
+  if (!info) return;
+  if (info.kind === 'project' && info.project >= 0) return openProject(info.project);
+  if (info.url?.startsWith('mailto:')) location.href = info.url;
+  else if (info.url) window.open(info.url, '_blank', 'noopener');
+}
+
+// ---------------------------------------------------------------- renderer, camera, controls
+const canvas = $('c');
+const renderer = new THREE.WebGLRenderer({canvas, antialias: true, alpha: true});
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+const scene = new THREE.Scene();
+const target = new THREE.Vector3(...V.target);
+const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 200);
+camera.up.set(0, 1, 0);                                   // turn around the room's vertical axis
+camera.position.copy(target).addScaledVector(new THREE.Vector3(...V.dir), 40);
+camera.lookAt(target);
+
+function resize() {
+  const w = innerWidth, h = innerHeight, aspect = w / h, m = 1.1;
+  const halfH = Math.max(V.extent[1] / 2, V.extent[0] / 2 / aspect) * m;
+  camera.left = -halfH * aspect; camera.right = halfH * aspect; camera.top = halfH; camera.bottom = -halfH;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h, false);
+}
+resize(); addEventListener('resize', resize);
+
+const controls = new OrbitControls(camera, canvas);
+controls.target.copy(target);
+controls.enableDamping = true; controls.dampingFactor = 0.08;
+controls.zoomToCursor = true; controls.minZoom = 0.85; controls.maxZoom = 3.5;
+controls.rotateSpeed = 0.6; controls.screenSpacePanning = true;
+controls.update();
+const az = controls.getAzimuthalAngle(), pol = controls.getPolarAngle();
+controls.minAzimuthAngle = az - 0.42; controls.maxAzimuthAngle = az + 0.42;    // a cutaway room only works from the front
+controls.minPolarAngle = Math.max(0.25, pol - 0.35); controls.maxPolarAngle = Math.min(Math.PI / 2 - 0.08, pol + 0.25);
+const span = Math.max(...V.extent) * 0.45;
+controls.addEventListener('change', () => {                                     // keep the room on screen when panning
+  const off = controls.target.clone().sub(target);
+  if (off.length() > span) { off.setLength(span); controls.target.copy(target).add(off); }
+});
+
+// ---------------------------------------------------------------- load room + baked light
+const manager = new THREE.LoadingManager();
+manager.onProgress = (_, done, total) => { $('lbar').style.width = `${Math.round(100 * done / total)}%`; };
+manager.onError = url => { const n = fileName(url); if (!n.endsWith('.glb')) fail(`Could not load ${n}.`); };
+let failed = false;
+function fail(msg) {
+  failed = true;
+  $('error').style.display = 'block';
+  $('error').innerHTML = C.single
+    ? `${esc(msg)}<br><br>Check your internet connection (the 3D engine loads from the web) and reload.
+      <br><br><a href="index.html">Open the 2D version</a>`
+    : `${esc(msg)}<br><br>This page was made with --separate-files, so it must be opened from a web server, not by
+      double-clicking the file. Try: <code>python3 -m http.server</code> in this folder, then open
+      <code>http://localhost:8000/room3d.html</code>.<br><br><a href="index.html">Open the 2D version</a>`;
+}
+const texLoader = new THREE.TextureLoader(manager);
+const maxAniso = renderer.capabilities.getMaxAnisotropy();
+function tex(path) {
+  const t = texLoader.load(path);
+  t.colorSpace = THREE.SRGBColorSpace; t.flipY = false; t.anisotropy = Math.min(8, maxAniso);
+  return t;
+}
+const light = tex(file(`3d/${S.light}`));
+const pics = S.pictures.map(p => {                    // your project images, "cover"-cropped like in the renders
+  if (!p.image) return null;
+  const t = tex(file(p.image));
+  t.repeat.set(...p.repeat); t.offset.set((1 - p.repeat[0]) / 2, (1 - p.repeat[1]) / 2);
+  t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
+  return t;
+});
+const draco = new DRACOLoader().setDecoderPath(`https://cdn.jsdelivr.net/npm/three@${C.three}/examples/jsm/libs/draco/gltf/`);
+const loader = new GLTFLoader(manager).setDRACOLoader(draco);
+
+const clickables = [];                 // {obj, info, scale}
+let tries = 0;
+const loadRoom = () => loader.load(file('3d/room.glb'), onRoom, undefined, () => {    // one retry for flaky connections
+  if (++tries < 2) setTimeout(loadRoom, 800); else fail('Could not load the room (3d/room.glb).');
+});
+loadRoom();
+function onRoom(gltf) {
+  const root = gltf.scene;
+  root.traverse(o => {
+    if (!o.isMesh) return;
+    let owner = o; while (owner.parent && owner.parent !== root) owner = owner.parent;
+    const name = owner.name;
+    const pic = name.startsWith('pic_') ? S.pictures[+name.slice(4)] : null;
+    const map = pic ? pics[+name.slice(4)] : light;
+    o.material = new THREE.MeshBasicMaterial({map, side: THREE.DoubleSide});
+    const alpha = (S.glass || {})[name];
+    if (alpha !== undefined) Object.assign(o.material, {transparent: true, opacity: Math.max(alpha, 0.15), depthWrite: false});
+    o.userData.base = pic && !pic.glow ? 0.9 : 1;          // printed pictures are a touch darker than glowing screens
+    o.material.color.setScalar(o.userData.base);
+  });
+  root.children.forEach(o => {
+    const info = S.clicks[o.name];
+    if (!info) return;
+    const box = new THREE.Box3().setFromObject(o), corners = [];
+    for (const x of [box.min.x, box.max.x]) for (const y of [box.min.y, box.max.y]) for (const z of [box.min.z, box.max.z])
+      corners.push(new THREE.Vector3(x, y, z));
+    clickables.push({obj: o, info, corners, scale: 1, hot: false, dot: makeDot(o, info)});
+  });
+  scene.add(root);
+}
+
+manager.onLoad = () => {
+  if (failed) return;
+  $('lbar').style.width = '100%';
+  $('loader').classList.add('done');
+  intro = still ? 1 : 0;
+  setTimeout(() => { $('hint').style.opacity = 0; }, 9000);
+};
+
+// ---------------------------------------------------------------- hotspots: hover, click, dots
+function makeDot(obj, info) {
+  const b = document.createElement('button');
+  b.className = 'dot'; b.setAttribute('aria-label', info.label || 'Open');
+  b.onclick = () => activate(info);
+  b.onmouseenter = () => showTip(info.label, b.getBoundingClientRect().left + 13, b.getBoundingClientRect().top);
+  b.onmouseleave = hideTip;
+  $('dots').appendChild(b);
+  return b;
+}
+const tip = $('tip');
+function showTip(text, x, y) { tip.textContent = text; tip.style.left = `${x}px`; tip.style.top = `${y}px`; tip.style.opacity = text ? 1 : 0; }
+function hideTip() { tip.style.opacity = 0; }
+
+const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
+let hovered = null, down = null;
+function pick(ev) {
+  ptr.set(ev.clientX / innerWidth * 2 - 1, -ev.clientY / innerHeight * 2 + 1);
+  ray.setFromCamera(ptr, camera);
+  const hit = ray.intersectObjects(scene.children, true)[0];
+  if (!hit) return null;
+  let o = hit.object; while (o.parent && !S.clicks[o.name]) o = o.parent;
+  return clickables.find(c => c.obj === o) || null;
+}
+canvas.addEventListener('pointermove', ev => {
+  if (ev.pointerType !== 'mouse') return;
+  const c = pick(ev);
+  if (hovered && hovered !== c) hovered.hot = false;
+  hovered = c;
+  canvas.style.cursor = c ? 'pointer' : 'grab';
+  if (c) { c.hot = true; showTip(c.info.label, ev.clientX, ev.clientY - 6); } else hideTip();
+});
+canvas.addEventListener('pointerleave', () => { if (hovered) hovered.hot = false; hovered = null; hideTip(); });
+canvas.addEventListener('pointerdown', ev => { down = [ev.clientX, ev.clientY]; });
+canvas.addEventListener('pointerup', ev => {
+  if (!down || Math.hypot(ev.clientX - down[0], ev.clientY - down[1]) > 6) return;      // it was a drag
+  activate(pick(ev)?.info);
+});
+
+window.roomkit = {THREE, scene, camera, controls, renderer, clickables};   // for tinkering in the browser console
+
+// ---------------------------------------------------------------- loop
+let intro = -1;
+const clock = new THREE.Clock(), v = new THREE.Vector3();
+const ease = t => 1 - Math.pow(1 - t, 3);
+renderer.setAnimationLoop(() => {
+  const dt = Math.min(clock.getDelta(), 0.05);
+  if (intro >= 0 && intro < 1) {                                  // gentle swing-in on load
+    intro = Math.min(1, intro + dt / 1.6);
+    const k = 1 - ease(intro);
+    camera.zoom = 1 - 0.12 * k;
+    const off = camera.position.clone().sub(controls.target);
+    off.applyAxisAngle(camera.up, (-0.35 * k) - (camera.userData.swing || 0));
+    camera.userData.swing = -0.35 * k;
+    camera.position.copy(controls.target).add(off);
+    camera.updateProjectionMatrix();
+  }
+  controls.update();
+  for (const c of clickables) {
+    const goal = c.hot ? 1.06 : 1;
+    c.scale += (goal - c.scale) * Math.min(1, dt * 14);
+    c.obj.scale.setScalar(c.scale);
+    c.obj.traverse(o => { if (o.isMesh) o.material.color.setScalar(o.userData.base * (c.hot ? 1.18 : 1)); });
+    let top = -Infinity, x0 = Infinity, x1 = -Infinity;          // dot sits on the top edge, not over the content
+    for (const p of c.corners) { v.copy(p).project(camera); top = Math.max(top, v.y); x0 = Math.min(x0, v.x); x1 = Math.max(x1, v.x); }
+    const x = (x0 + x1) / 2, off = Math.abs(x) > 1 || top > 1 || top < -1;
+    c.dot.classList.toggle('hide', off || c.hot);
+    c.dot.style.left = `${(x + 1) / 2 * innerWidth}px`; c.dot.style.top = `${(1 - top) / 2 * innerHeight}px`;
+  }
+  renderer.render(scene, camera);
+});
+</script>
+</body>
+</html>

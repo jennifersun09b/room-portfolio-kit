@@ -1,0 +1,21 @@
+{
+  "name": "Alex Rivera",
+  "role": "Front-end Developer",
+  "tagline": "I build friendly, fast web apps and the occasional tiny game.",
+  "room": "cozy_bedroom",
+  "theme": "",
+  "brand_color": "",
+  "links": {
+    "email": "alex@example.com",
+    "github": "https://github.com/example",
+    "linkedin": "https://www.linkedin.com/in/example",
+    "website": "https://example.com"
+  },
+  "skills": ["TypeScript", "React", "Three.js", "Figma", "Accessibility"],
+  "projects": [
+    {"title": "Team Dashboard", "image": "samples/projects/project_dashboard.png", "url": "https://example.com/dashboard", "description": "Analytics dashboard used by 40 teams."},
+    {"title": "Habit App", "image": "samples/projects/project_mobile_app.png", "url": "https://example.com/habits", "description": "A calm habit tracker for iOS and Android."},
+    {"title": "Hillside Poster", "image": "samples/projects/project_illustration.png", "url": "https://example.com/poster", "description": "Illustration series for a local festival."},
+    {"title": "Night Jumper", "image": "samples/projects/project_game.png", "url": "https://example.com/game", "description": "A tiny platformer made in a weekend game jam."}
+  ]
+}

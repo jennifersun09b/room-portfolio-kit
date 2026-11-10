@@ -1,0 +1,53 @@
+# Cozy Café: real-world references
+
+Room: `templates/cozy_cafe.py` (themes `morning`, `bakery`). This is a neighbourhood bakery-café of the kind run by GAIL's, Ole & Steen, Le Pain Quotidien or an independent bakery. Brand names appear only in this file and in code comments. The scene has no logos, brand names or trademarked graphics.
+
+## Venue and room language
+
+A London or Copenhagen bakery-café is a narrow shopfront that faces a pavement. It has a glazed timber door, a big shop window with gold-leaf lettering on the glass, and a canvas awning with a scalloped valance. There is an A-board chalkboard on the pavement and a bracket sign over the door.
+
+Inside, one long service counter runs parallel to the back wall. Its front is dark-stained, fluted (reeded) oak, and it has a thick white marble top. A curved-glass patisserie cabinet next to it holds tiered trays of croissants, pain au chocolat, cinnamon buns and tarts. On the counter are a two-group commercial espresso machine with a doser grinder beside it, a card reader, a tablet till on a swivel stand, and cakes under glass domes.
+
+The back wall is staff territory, finished in white bevelled metro tiles. It holds low cabinets with drawers, sloped wooden bread shelves with wicker baskets of sourdough and a tall basket of baguettes, and a black felt letter board menu. Above the counter hang enamel dome pendants. Customers sit on Thonet No.14-style bentwood chairs at small round marble bistro tables on cast-iron bases, or on an upholstered channel-back banquette under the window. The floor is oak herringbone with a border, and the walls are warm limewash plaster with painted skirting. Le Pain Quotidien adds rough reclaimed-wood tables. GAIL's changes its styling per site, with bespoke counters, shelving and seating made by joinery contractors.
+
+## Pieces
+
+| Piece (slot) | Real reference | Real dimensions used | Key recognisable details | Source |
+|---|---|---|---|---|
+| Bentwood chair (`chair` + decor) | Thonet No.14 / "Vienna café chair" | W 41-43, D 49-52, H 88-90 cm, seat 46 cm, seat Ø 40 cm | One continuous bent piece forms the rear legs and the outer back hoop. It has a smaller inner loop, a round seat ring with a cane insert, four slightly splayed round legs, a leg ring about 20 cm up, and small corner braces under the seat. | https://www.monologuelondon.com/products/n14-chair · https://www.1stdibs.com/furniture/seating/chairs/original-thonet-bentwood-chair-no-14-late-19th-early-20th-century/id-f_33782692/ |
+| Bentwood counter stool (`stool`) | Thonet-style bentwood counter stool (No.14 family) | seat Ø 36 cm, seat height 65 cm (for a 92 cm counter) | Round cane seat in a bent ring, four splayed round legs, and a steam-bent foot ring | https://www.chairish.com/product/17502425/antique-chair-model-no-14-from-thonet (construction family) |
+| Bistro table (`table` + decor) | French marble-top bistro table on a cast-iron tripod (e.g. Blumfeldt "Patras", antique French guéridon) | Ø 60 cm top, H 75 cm, marble 20 mm | Thin white veined marble disc with a soft edge, a slim cast-iron column with a collar, and three curled cast feet | https://www.blumfeldt.co.uk/Garden-furniture/Patras-Pearl-Bistro-Table-Art-Nouveau-Marble-60-cm-H-75-cm-Cast-Iron-White.html · https://www.selency.nl/p/FHZ6BTPA/bistro-table-with-a-cast-iron-base-and-marble-top |
+| Espresso machine (`hero_prop`) | La Marzocco Linea Classic S, 2 group (shape only, no logo) | W 69 × D 56 × H 53 cm | Boxy stainless body on four short feet, two chrome group heads with black-handled portafilters, keypads above the groups, a central pressure gauge, steam wands at both corners, a hot-water spout, a grated drip tray and a railed cup tray on top | https://www.matthewalgie.com/machines/details/la-marzocco-linea-classic-2-group · https://www.coffeemachinedepot.com/collections/2-group-heads/products/la-marzocco-linea-classic-s-ee-2-group-commercial-espresso-machine |
+| Grinder (decor on counter) | Mazzer Super Jolly doser grinder | W 24 × D 41 × H 60 cm | Polished aluminium motor body, clear doser chamber with a side lever, a portafilter fork, and a tall smoked conical bean hopper with a lid | https://www.wholelattelove.com/products/mazzer-super-jolly-grinder-in-black · https://www.lamarzoccousa.com/documents/mazzer-product-sheet/ |
+| Patisserie cabinet (`display_case`) | Curved-glass patisserie counter, 900 mm (e.g. Sterling Pro EVO90, GGM KTH9713R) | W 90 × D 73-78 × H 120-140 cm, 2-3 tiers | Curved front glass, stepped glass shelves, a stainless deck, LED strips, and a base clad in the same joinery as the counter. Pastries sit in rows on trays. | https://ceonline.co.uk/sterling-pro-evo90-chilled-patisserie-counter-curved-glass.html · https://www.ggmgastro.com/en-gb-gbp/commercial-curved-glass-pastry-display-counter-900-mm-mirror-front-plus-2-to-plus-10-celsius-3-shelves-kth9713r |
+| Service counter (`counter`) | GAIL's / Ole & Steen-style bespoke joinery counter (Weber Industries, Inside Out Contracts) | L 160 × D 70 × H 92 cm, 30 mm marble top | Fluted dark-oak front, recessed plinth, thick marble top with a small overhang, cup stacks, a card reader, a tablet till and cake domes | https://weberindustries.com/projects/gails-bakery · https://insideoutcontracts.com/projects/gails-east-dulwich |
+| Cake domes (on counter) | Glass cake stand with dome (e.g. Nkuku Banjara) | Ø 30 cm, H 38 cm | Footed white plate, layered sponge cake, and a clear bell dome with a knob | https://nkuku.com/products/banjara-glass-dome-cake-stand-bs11 |
+| Card reader (on counter) | SumUp Solo-style countertop reader on a dock | 83 × 83 × 17.6 mm | Small dark rounded square with a lit screen, tilted on a white charging cradle | https://www.mobiletransaction.org/sumup-solo-review/ |
+| Bread wall (back bar decor) | Bakery bread shelving (Mandai "Ceres", Gadsby bakery wall) + wicker display baskets | shelves 50 cm deep, baskets 38.5 × 50 × 12 cm, baguette basket H 60 cm | Sloped slatted shelves with a front lip, wicker baskets holding sourdough boules and bloomers, a tall basket of upright baguettes, and drawer and door cabinets below | https://www.mandai-design.com/products/shelving-system-ceres-bakery-style1 · https://www.gadsby.co.uk/prod/101/sloping-display-basket-50 |
+| Menu (back wall) | George & Willy-style black felt letter board with an oak frame | 140 × 100 cm custom (stock sizes 60 × 40, 80 × 60) | Black grooved felt with white push-in sans-serif letters and a slim oak frame | https://www.georgeandwilly.com/products/felt-board |
+| Wall tiles | White bevelled metro (subway) tile | 150 × 75 mm, half-bond, thin light grout | Glossy white brick-bond tiles behind the bar, finished with plaster above | https://www.clayandrock.co.uk/im-0003718-brilliant-white-metro-bevelled-tile |
+| Pendant lights (`pendant_lamp`) | Enamel dome factory pendant (1950s-60s Thorlux / school-house type) | Ø 35-37 cm, H 16-25 cm shade | Dark enamel outside, white inside, a cord with a ceiling rose, and a visible bulb, about 0.8 m above the counter | https://www.1stdibs.com/furniture/lighting/chandeliers-pendant-lights/1960s-shallow-thorlux-enamelled-pendant-lamp-16-inch/id-f_47001352 · https://archipro.com.au/product/workshop-black-370mm-loftmotif |
+| Banquette (decor under window) | Restaurant channel-back banquette (contract upholstery) | seat height 45 cm, seat depth 50 cm, back about 40 cm above the seat | Separate seat cushion, vertical channel-tufted back, and a recessed wooden plinth | https://dimensions.com/element/banquette-seating-clearances |
+| A-board (pavement, email hook) | Wooden A-frame chalkboard (Majisign standard) | 61 × 107 cm overall, chalk area 51 × 89 cm | Two hinged framed slates and a chain or stay between the legs | https://www.majisign.co.uk/product/standard-wooden-a-boards/ |
+| Wall shelf (`wall_shelf`) | Oak plank shelf on black steel brackets (IKEA BERGSHULT / PERSHULT type) | 80 × 20 cm (a stock BERGSHULT size), 2.0 cm board | Slim oak boards on L-brackets holding retail coffee pouches, glass jars and cups | https://www.ikea.com/gb/en/p/bergshult-shelf-white-60292117/ (product family) |
+| Plant (`plant`) | Olive tree in a fibre-clay planter (common café entrance plant) | pot Ø 40 × 38 cm, tree H 1.6 m | Thin twisting trunk, small narrow silvery leaves and a rimmed pot with soil | https://www.lepainquotidien.com/ (venue language: plants and reclaimed wood) |
+| Floor | Oak herringbone parquet with a border | 70 × 350 mm blocks | 45-degree blocks with a perimeter border strip | (standard parquet format) |
+
+## Notes for modelling
+- Counter 92 cm, café chair seat 46 cm, counter stool seat 65 cm, banquette seat 45 cm, door 2.1 m, window sill 0.9 m, pendants about 0.8 m above the counter.
+- Thin parts stay thin: marble table tops 20 mm, counter top 30 mm, shelves 20 mm, chair parts 18-22 mm.
+- Bevels on hard parts are 2-8 mm. Larger bevels are used only on cushions and bread.
+- Window lettering is gold leaf on the inside of the glass, so it reads mirrored from inside the shop (that is how it looks in real life).
+
+## Art-direction review (second pass)
+Changes made after comparing close-up renders with real bakeries and the products above:
+- Sourdough boules now show the spiral flour rings that a cane banneton leaves, plus one curved score with a raised "ear". The old version had a solid white flour cap and a cross score, so the loaves looked like eyeballs.
+- Bloomers are deep-golden loaves with five pale diagonal slashes. The white flour stripe that made them look like hot dogs is gone.
+- Pains au chocolat are puffed rectangular blocks with a lapped seam on top, flaky layers at the ends and two chocolate batons. They were flat boxes before, then sausage-shaped.
+- Croissant tips now curl inwards, so they read as a crescent rather than a straight row of balls.
+- There are two different cakes: a Victoria sponge on the counter (dusted with icing sugar, not bright white) and a chocolate ganache cake with truffles on the cabinet. The pendants are slightly dimmer, so the tops no longer blow out to white.
+- The shop window and door glass are semi-clear plate glass with soft reflection streaks. They used to read as opaque white lightboxes.
+- The bracket-sign emblem is a flat, carved and gilded croissant with its horns pointing down, as on traditional bakery signs. It used to be a 3D pastry stuck to the board.
+- The oak shelf is now a real 80 × 20 cm BERGSHULT size and has moved right, so it no longer covers poster 1. The trailing pothos is shorter.
+- Leaves (olive, box ball, pothos) are pointed ovals with a midrib fold, not flat diamonds.
+- The bentwood chair back hoop flares wider towards the top, as on a real No.14.

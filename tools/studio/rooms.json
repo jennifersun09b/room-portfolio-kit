@@ -1,0 +1,3745 @@
+{
+ "version": 2,
+ "generated": "2026-11-09T19:32:35",
+ "rooms": [
+  {
+   "id": "academia_library",
+   "name": "Academia Library",
+   "blurb": "Tall bookcases, a reading chair and a rainy window.",
+   "themed": false,
+   "default_theme": "rainy_evening",
+   "themes": [
+    {
+     "id": "rainy_evening",
+     "label": "Rainy evening",
+     "default": true,
+     "colors": {
+      "background": "#1F272B",
+      "wall": "#2F4536",
+      "floor": "#7A5333",
+      "wood": "#4E2C1C",
+      "main": "#6E1F24",
+      "accent_1": "#2A5A3E",
+      "accent_2": "#B88E4E",
+      "accent_3": "#9AB0C4",
+      "cream": "#E6D6B0",
+      "dark": "#1A1D1B"
+     },
+     "preview": "previews/academia_library.png",
+     "thumb": "tools/studio/thumbs/academia_library.jpg"
+    },
+    {
+     "id": "sunny_reading",
+     "label": "Sunny reading",
+     "default": false,
+     "colors": {
+      "background": "#EDE4D3",
+      "wall": "#6F8A66",
+      "floor": "#A87A4E",
+      "wood": "#6A3F28",
+      "main": "#8C2E33",
+      "accent_1": "#3E6B50",
+      "accent_2": "#C9A15E",
+      "accent_3": "#BFD8EA",
+      "cream": "#F1E6CC",
+      "dark": "#2A2420"
+     },
+     "preview": "previews/academia_library__sunny_reading.png",
+     "thumb": "tools/studio/thumbs/academia_library__sunny_reading.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "shelf",
+     "kind": "floor",
+     "shape": "shelf",
+     "size": [
+      2.4,
+      0.42,
+      2.84
+     ],
+     "label": "Shelf unit",
+     "hint": "Shelving with books and boxes",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "desk",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.52,
+      0.92,
+      0.76
+     ],
+     "label": "Desk",
+     "hint": "Where you work",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "chair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.58,
+      0.56,
+      0.86
+     ],
+     "label": "Chair",
+     "hint": "A seat at the desk or table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "lamp",
+     "kind": "surface",
+     "shape": "lamp",
+     "size": [
+      0.26,
+      0.2,
+      0.38
+     ],
+     "label": "Table lamp",
+     "hint": "A lamp on a surface",
+     "where": "Sits on another piece"
+    },
+    {
+     "name": "armchair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.85,
+      0.9,
+      1.08
+     ],
+     "label": "Armchair",
+     "hint": "A reading or lounge chair",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "side_table",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      0.56,
+      0.56,
+      0.69
+     ],
+     "label": "Side table",
+     "hint": "Bedside or sofa-side table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "floor_lamp",
+     "kind": "floor",
+     "shape": "lamp",
+     "size": [
+      0.44,
+      0.44,
+      1.56
+     ],
+     "label": "Floor lamp",
+     "hint": "A standing lamp",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "hero_prop",
+     "kind": "floor",
+     "shape": "box",
+     "size": [
+      0.62,
+      0.62,
+      1.05
+     ],
+     "label": "Star piece",
+     "hint": "The eye-catching centrepiece",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "rug",
+     "kind": "rug",
+     "shape": "rug",
+     "size": [
+      2.7,
+      1.9,
+      0.012
+     ],
+     "label": "Rug",
+     "hint": "The rug on the floor",
+     "where": "Lies on the floor"
+    },
+    {
+     "name": "wall_art",
+     "kind": "wall",
+     "shape": "frame",
+     "size": [
+      1.3,
+      0.05,
+      0.62
+     ],
+     "label": "Wall art",
+     "hint": "Pictures on the wall",
+     "where": "Hangs on the wall"
+    }
+   ],
+   "personas": [
+    "writer",
+    "student",
+    "teacher"
+   ],
+   "name_sign": {
+    "fit": 17,
+    "max": 28,
+    "width_m": 0.85,
+    "letter_m": 0.12
+   },
+   "role_sign": {
+    "fit": 30,
+    "max": 50,
+    "width_m": 0.81,
+    "letter_m": 0.065
+   },
+   "hooks": {
+    "pictures": 4,
+    "links": [
+     "email",
+     "github",
+     "linkedin",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role",
+     "title"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/academia_library.blend",
+   "sig": [
+    [
+     "templates/academia_library.py",
+     1794230592,
+     132666
+    ],
+    [
+     "templates/output/academia_library.blend",
+     1794231828,
+     1997715
+    ]
+   ],
+   "preview": "previews/academia_library.png",
+   "thumb": "tools/studio/thumbs/academia_library.jpg"
+  },
+  {
+   "id": "cozy_bedroom",
+   "name": "Cosy Bedroom",
+   "blurb": "A soft pastel bedroom with a letter-board sign and fairy lights.",
+   "themed": false,
+   "default_theme": "pastel",
+   "themes": [
+    {
+     "id": "pastel",
+     "label": "Pastel",
+     "default": true,
+     "colors": {
+      "background": "#F6E7E1",
+      "wall": "#F6DDD5",
+      "floor": "#DDBB92",
+      "wood": "#CFA47A",
+      "main": "#CDB8E8",
+      "accent_1": "#F2B8C0",
+      "accent_2": "#BFE3D0",
+      "accent_3": "#F8E3A3",
+      "cream": "#FBF7F1",
+      "dark": "#4E4049"
+     },
+     "preview": "previews/cozy_bedroom.png",
+     "thumb": "tools/studio/thumbs/cozy_bedroom.jpg"
+    },
+    {
+     "id": "coquette",
+     "label": "Coquette",
+     "default": false,
+     "colors": {
+      "background": "#F7E6E6",
+      "wall": "#FAEAE8",
+      "floor": "#E2C3A6",
+      "wood": "#D3AA86",
+      "main": "#EBB2BB",
+      "accent_1": "#C8475A",
+      "accent_2": "#F6D6DA",
+      "accent_3": "#FFF1D6",
+      "cream": "#FFF9F5",
+      "dark": "#5A3A40"
+     },
+     "preview": "previews/cozy_bedroom__coquette.png",
+     "thumb": "tools/studio/thumbs/cozy_bedroom__coquette.jpg"
+    },
+    {
+     "id": "cottagecore",
+     "label": "Cottagecore",
+     "default": false,
+     "colors": {
+      "background": "#EEF0E2",
+      "wall": "#F1E9D6",
+      "floor": "#C49E72",
+      "wood": "#B4865A",
+      "main": "#A8BF94",
+      "accent_1": "#D99A9A",
+      "accent_2": "#E9D9A6",
+      "accent_3": "#C9B6D9",
+      "cream": "#FBF6EA",
+      "dark": "#4F3F33"
+     },
+     "preview": "previews/cozy_bedroom__cottagecore.png",
+     "thumb": "tools/studio/thumbs/cozy_bedroom__cottagecore.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "bed",
+     "kind": "floor",
+     "shape": "bed",
+     "size": [
+      1.56,
+      2.09,
+      1.0
+     ],
+     "label": "Bed",
+     "hint": "The bed and bedding",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "side_table",
+     "kind": "floor",
+     "shape": "cabinet",
+     "size": [
+      0.46,
+      0.35,
+      0.7
+     ],
+     "label": "Side table",
+     "hint": "Bedside or sofa-side table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "lamp",
+     "kind": "surface",
+     "shape": "lamp",
+     "size": [
+      0.26,
+      0.26,
+      0.34
+     ],
+     "label": "Table lamp",
+     "hint": "A lamp on a surface",
+     "where": "Sits on another piece"
+    },
+    {
+     "name": "desk",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.05,
+      0.5,
+      0.75
+     ],
+     "label": "Desk",
+     "hint": "Where you work",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "chair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.45,
+      0.51,
+      0.81
+     ],
+     "label": "Chair",
+     "hint": "A seat at the desk or table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "shelf",
+     "kind": "floor",
+     "shape": "shelf",
+     "size": [
+      0.77,
+      0.39,
+      1.47
+     ],
+     "label": "Shelf unit",
+     "hint": "Shelving with books and boxes",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "plant",
+     "kind": "floor",
+     "shape": "plant",
+     "size": [
+      0.5,
+      0.5,
+      1.15
+     ],
+     "label": "Plant",
+     "hint": "A potted plant",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "rug",
+     "kind": "rug",
+     "shape": "rug",
+     "size": [
+      2.3,
+      1.6,
+      0.012
+     ],
+     "label": "Rug",
+     "hint": "The rug on the floor",
+     "where": "Lies on the floor"
+    },
+    {
+     "name": "wall_art",
+     "kind": "wall",
+     "shape": "frame",
+     "size": [
+      1.52,
+      0.05,
+      0.52
+     ],
+     "label": "Wall art",
+     "hint": "Pictures on the wall",
+     "where": "Hangs on the wall"
+    },
+    {
+     "name": "pet",
+     "kind": "floor",
+     "shape": "pet",
+     "size": [
+      0.5,
+      0.5,
+      0.3
+     ],
+     "label": "Pet",
+     "hint": "Your pet (a photo works great)",
+     "where": "Stands on the floor"
+    }
+   ],
+   "personas": [
+    "student",
+    "artist",
+    "couple",
+    "teacher"
+   ],
+   "name_sign": {
+    "fit": 13,
+    "max": 21,
+    "width_m": 0.5,
+    "letter_m": 0.09
+   },
+   "role_sign": {
+    "fit": 24,
+    "max": 40,
+    "width_m": 0.5,
+    "letter_m": 0.05
+   },
+   "hooks": {
+    "pictures": 4,
+    "links": [
+     "email",
+     "github",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/cozy_bedroom.blend",
+   "sig": [
+    [
+     "templates/cozy_bedroom.py",
+     1794229543,
+     90354
+    ],
+    [
+     "templates/output/cozy_bedroom.blend",
+     1794231621,
+     980390
+    ]
+   ],
+   "preview": "previews/cozy_bedroom.png",
+   "thumb": "tools/studio/thumbs/cozy_bedroom.jpg"
+  },
+  {
+   "id": "cozy_cafe",
+   "name": "Cosy Café",
+   "blurb": "A bakery café with a pastry case, menu board and bentwood chairs.",
+   "themed": false,
+   "default_theme": "morning",
+   "themes": [
+    {
+     "id": "morning",
+     "label": "Morning",
+     "default": true,
+     "colors": {
+      "background": "#EFE4D6",
+      "wall": "#F1E9DC",
+      "floor": "#B48F69",
+      "wood": "#C29F78",
+      "main": "#8EA58C",
+      "accent_1": "#C8653E",
+      "accent_2": "#F1D7A6",
+      "accent_3": "#C9A45C",
+      "cream": "#F6F1E8",
+      "dark": "#2A2725"
+     },
+     "preview": "previews/cozy_cafe.png",
+     "thumb": "tools/studio/thumbs/cozy_cafe.jpg"
+    },
+    {
+     "id": "bakery",
+     "label": "Bakery",
+     "default": false,
+     "colors": {
+      "background": "#F8E6E8",
+      "wall": "#FCF0EF",
+      "floor": "#D9BB98",
+      "wood": "#E0B48E",
+      "main": "#A9DCC7",
+      "accent_1": "#F28DA6",
+      "accent_2": "#FFE2B3",
+      "accent_3": "#B9A4E0",
+      "cream": "#FFFAF4",
+      "dark": "#4A3A42"
+     },
+     "preview": "previews/cozy_cafe__bakery.png",
+     "thumb": "tools/studio/thumbs/cozy_cafe__bakery.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "display_case",
+     "kind": "floor",
+     "shape": "cabinet",
+     "size": [
+      0.9,
+      0.75,
+      1.3
+     ],
+     "label": "Display case",
+     "hint": "Glass case for products",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "counter",
+     "kind": "floor",
+     "shape": "counter",
+     "size": [
+      1.6,
+      0.68,
+      0.92
+     ],
+     "label": "Counter",
+     "hint": "The shop or bar counter",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "hero_prop",
+     "kind": "surface",
+     "shape": "box",
+     "size": [
+      0.69,
+      0.56,
+      0.53
+     ],
+     "label": "Star piece",
+     "hint": "The eye-catching centrepiece",
+     "where": "Sits on another piece"
+    },
+    {
+     "name": "pendant_lamp",
+     "kind": "hanging",
+     "shape": "lamp",
+     "size": [
+      1.5,
+      0.4,
+      1.12
+     ],
+     "label": "Ceiling lamp",
+     "hint": "A lamp hanging from the ceiling",
+     "where": "Hangs from above"
+    },
+    {
+     "name": "stool",
+     "kind": "floor",
+     "shape": "stool",
+     "size": [
+      0.95,
+      0.4,
+      0.66
+     ],
+     "label": "Stool",
+     "hint": "A stool or bar seat",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "table",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      0.62,
+      0.62,
+      0.75
+     ],
+     "label": "Table",
+     "hint": "A table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "chair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.44,
+      0.5,
+      0.9
+     ],
+     "label": "Chair",
+     "hint": "A seat at the desk or table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "wall_shelf",
+     "kind": "wall",
+     "shape": "shelf",
+     "size": [
+      0.8,
+      0.22,
+      0.6
+     ],
+     "label": "Wall shelf",
+     "hint": "A shelf on the wall",
+     "where": "Hangs on the wall"
+    },
+    {
+     "name": "plant",
+     "kind": "floor",
+     "shape": "plant",
+     "size": [
+      0.5,
+      0.5,
+      1.6
+     ],
+     "label": "Plant",
+     "hint": "A potted plant",
+     "where": "Stands on the floor"
+    }
+   ],
+   "personas": [
+    "shop",
+    "couple"
+   ],
+   "name_sign": {
+    "fit": 21,
+    "max": 35,
+    "width_m": 1.16,
+    "letter_m": 0.13
+   },
+   "role_sign": {
+    "fit": 37,
+    "max": 61,
+    "width_m": 1.06,
+    "letter_m": 0.07
+   },
+   "hooks": {
+    "pictures": 4,
+    "links": [
+     "email",
+     "github",
+     "linkedin",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role",
+     "title"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/cozy_cafe.blend",
+   "sig": [
+    [
+     "templates/cozy_cafe.py",
+     1794230313,
+     112862
+    ],
+    [
+     "templates/output/cozy_cafe.blend",
+     1794231759,
+     1375214
+    ]
+   ],
+   "preview": "previews/cozy_cafe.png",
+   "thumb": "tools/studio/thumbs/cozy_cafe.jpg"
+  },
+  {
+   "id": "design_studio",
+   "name": "Design Studio",
+   "blurb": "An airy studio with a big work table, easel and pin-up wall.",
+   "themed": false,
+   "default_theme": "airy",
+   "themes": [
+    {
+     "id": "airy",
+     "label": "Airy",
+     "default": true,
+     "colors": {
+      "background": "#E4EAF1",
+      "wall": "#F4F1EC",
+      "floor": "#D7BD96",
+      "wood": "#CFAE82",
+      "main": "#3A68A8",
+      "accent_1": "#D25A3F",
+      "accent_2": "#DDA43F",
+      "accent_3": "#3F8C7E",
+      "cream": "#FBF9F4",
+      "dark": "#2A2C31"
+     },
+     "preview": "previews/design_studio.png",
+     "thumb": "tools/studio/thumbs/design_studio.jpg"
+    },
+    {
+     "id": "studio_night",
+     "label": "Studio night",
+     "default": false,
+     "colors": {
+      "background": "#1B2032",
+      "wall": "#3A4262",
+      "floor": "#8A6E52",
+      "wood": "#B39472",
+      "main": "#5E8FD6",
+      "accent_1": "#E9735A",
+      "accent_2": "#EDBA5A",
+      "accent_3": "#4FB0A0",
+      "cream": "#F1ECE3",
+      "dark": "#1C1E27"
+     },
+     "preview": "previews/design_studio__studio_night.png",
+     "thumb": "tools/studio/thumbs/design_studio__studio_night.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "workbench",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.65,
+      0.76,
+      0.92
+     ],
+     "label": "Workbench",
+     "hint": "A big work table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "monitor",
+     "kind": "surface",
+     "shape": "monitor",
+     "size": [
+      0.56,
+      0.18,
+      0.47
+     ],
+     "label": "Computer screen",
+     "hint": "The monitor on the desk",
+     "where": "Sits on another piece"
+    },
+    {
+     "name": "lamp",
+     "kind": "surface",
+     "shape": "lamp",
+     "size": [
+      0.16,
+      0.16,
+      0.62
+     ],
+     "label": "Table lamp",
+     "hint": "A lamp on a surface",
+     "where": "Sits on another piece"
+    },
+    {
+     "name": "stool",
+     "kind": "floor",
+     "shape": "stool",
+     "size": [
+      0.4,
+      0.4,
+      0.65
+     ],
+     "label": "Stool",
+     "hint": "A stool or bar seat",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "easel",
+     "kind": "floor",
+     "shape": "box",
+     "size": [
+      0.56,
+      0.56,
+      1.85
+     ],
+     "label": "Easel",
+     "hint": "A painting easel",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "rug",
+     "kind": "rug",
+     "shape": "rug",
+     "size": [
+      1.8,
+      1.4,
+      0.02
+     ],
+     "label": "Rug",
+     "hint": "The rug on the floor",
+     "where": "Lies on the floor"
+    },
+    {
+     "name": "cabinet",
+     "kind": "floor",
+     "shape": "cabinet",
+     "size": [
+      1.0,
+      0.725,
+      0.71
+     ],
+     "label": "Cabinet",
+     "hint": "Drawers or a cupboard",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "wall_art",
+     "kind": "wall",
+     "shape": "frame",
+     "size": [
+      1.2,
+      0.04,
+      0.9
+     ],
+     "label": "Wall art",
+     "hint": "Pictures on the wall",
+     "where": "Hangs on the wall"
+    },
+    {
+     "name": "shelf",
+     "kind": "floor",
+     "shape": "shelf",
+     "size": [
+      0.89,
+      0.3,
+      1.79
+     ],
+     "label": "Shelf unit",
+     "hint": "Shelving with books and boxes",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "plant",
+     "kind": "floor",
+     "shape": "plant",
+     "size": [
+      0.5,
+      0.5,
+      1.2
+     ],
+     "label": "Plant",
+     "hint": "A potted plant",
+     "where": "Stands on the floor"
+    }
+   ],
+   "personas": [
+    "designer",
+    "artist"
+   ],
+   "name_sign": {
+    "fit": 15,
+    "max": 25,
+    "width_m": 0.8,
+    "letter_m": 0.13
+   },
+   "role_sign": {
+    "fit": 24,
+    "max": 40,
+    "width_m": 0.76,
+    "letter_m": 0.075
+   },
+   "hooks": {
+    "pictures": 6,
+    "links": [
+     "email",
+     "github",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role",
+     "skill"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/design_studio.blend",
+   "sig": [
+    [
+     "templates/design_studio.py",
+     1794230037,
+     122097
+    ],
+    [
+     "templates/output/design_studio.blend",
+     1794231875,
+     1027486
+    ]
+   ],
+   "preview": "previews/design_studio.png",
+   "thumb": "tools/studio/thumbs/design_studio.jpg"
+  },
+  {
+   "id": "dev_office",
+   "name": "Developer Office",
+   "blurb": "A bright desk setup with monitors, a pegboard and a cat.",
+   "themed": false,
+   "default_theme": "daylight",
+   "themes": [
+    {
+     "id": "daylight",
+     "label": "Daylight",
+     "default": true,
+     "colors": {
+      "background": "#DCE7F0",
+      "wall": "#F2EEE7",
+      "floor": "#D2B188",
+      "wood": "#C9A276",
+      "main": "#8FB8DE",
+      "accent_1": "#E07F5F",
+      "accent_2": "#CFE3F5",
+      "accent_3": "#F4D27A",
+      "cream": "#F6F4EF",
+      "dark": "#2B2F36"
+     },
+     "preview": "previews/dev_office.png",
+     "thumb": "tools/studio/thumbs/dev_office.jpg"
+    },
+    {
+     "id": "japandi",
+     "label": "Japandi",
+     "default": false,
+     "colors": {
+      "background": "#ECE5DA",
+      "wall": "#E5DCCF",
+      "floor": "#D3BC9A",
+      "wood": "#C6A27C",
+      "main": "#D9CDB8",
+      "accent_1": "#8A6E58",
+      "accent_2": "#A4AD8C",
+      "accent_3": "#BE9277",
+      "cream": "#F1EADD",
+      "dark": "#3F3A35"
+     },
+     "preview": "previews/dev_office__japandi.png",
+     "thumb": "tools/studio/thumbs/dev_office__japandi.jpg"
+    },
+    {
+     "id": "night",
+     "label": "Night",
+     "default": false,
+     "colors": {
+      "background": "#1E2433",
+      "wall": "#E9E2D6",
+      "floor": "#C4A47C",
+      "wood": "#B8936A",
+      "main": "#7FA8D4",
+      "accent_1": "#F29B7E",
+      "accent_2": "#B9D3EE",
+      "accent_3": "#F3CD7A",
+      "cream": "#F4EFE6",
+      "dark": "#2A303C"
+     },
+     "preview": "previews/dev_office__night.png",
+     "thumb": "tools/studio/thumbs/dev_office__night.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "desk",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.6,
+      0.8,
+      0.75
+     ],
+     "label": "Desk",
+     "hint": "Where you work",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "cabinet",
+     "kind": "floor",
+     "shape": "cabinet",
+     "size": [
+      0.36,
+      0.58,
+      0.7
+     ],
+     "label": "Cabinet",
+     "hint": "Drawers or a cupboard",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "monitor",
+     "kind": "surface",
+     "shape": "monitor",
+     "size": [
+      1.12,
+      0.3,
+      0.62
+     ],
+     "label": "Computer screen",
+     "hint": "The monitor on the desk",
+     "where": "Sits on another piece"
+    },
+    {
+     "name": "lamp",
+     "kind": "surface",
+     "shape": "lamp",
+     "size": [
+      0.25,
+      0.45,
+      0.62
+     ],
+     "label": "Table lamp",
+     "hint": "A lamp on a surface",
+     "where": "Sits on another piece"
+    },
+    {
+     "name": "chair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.66,
+      0.66,
+      1.08
+     ],
+     "label": "Chair",
+     "hint": "A seat at the desk or table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "rug",
+     "kind": "rug",
+     "shape": "rug",
+     "size": [
+      2.3,
+      1.6,
+      0.01
+     ],
+     "label": "Rug",
+     "hint": "The rug on the floor",
+     "where": "Lies on the floor"
+    },
+    {
+     "name": "shelf",
+     "kind": "floor",
+     "shape": "shelf",
+     "size": [
+      0.77,
+      0.39,
+      1.47
+     ],
+     "label": "Shelf unit",
+     "hint": "Shelving with books and boxes",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "wall_art",
+     "kind": "wall",
+     "shape": "frame",
+     "size": [
+      0.72,
+      0.04,
+      0.95
+     ],
+     "label": "Wall art",
+     "hint": "Pictures on the wall",
+     "where": "Hangs on the wall"
+    },
+    {
+     "name": "plant",
+     "kind": "floor",
+     "shape": "plant",
+     "size": [
+      0.65,
+      0.65,
+      1.0
+     ],
+     "label": "Plant",
+     "hint": "A potted plant",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "pet",
+     "kind": "surface",
+     "shape": "pet",
+     "size": [
+      0.44,
+      0.28,
+      0.24
+     ],
+     "label": "Pet",
+     "hint": "Your pet (a photo works great)",
+     "where": "Sits on another piece"
+    }
+   ],
+   "personas": [
+    "student",
+    "designer",
+    "teacher"
+   ],
+   "name_sign": {
+    "fit": 15,
+    "max": 25,
+    "width_m": 0.7,
+    "letter_m": 0.11
+   },
+   "role_sign": {
+    "fit": 24,
+    "max": 40,
+    "width_m": 0.66,
+    "letter_m": 0.065
+   },
+   "hooks": {
+    "pictures": 6,
+    "links": [
+     "email",
+     "github",
+     "linkedin",
+     "website"
+    ],
+    "text": [
+     "logo",
+     "name",
+     "role",
+     "skill",
+     "title"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/dev_office.blend",
+   "sig": [
+    [
+     "templates/dev_office.py",
+     1794224128,
+     109110
+    ],
+    [
+     "templates/output/dev_office.blend",
+     1794243134,
+     873741
+    ]
+   ],
+   "preview": "previews/dev_office.png",
+   "thumb": "tools/studio/thumbs/dev_office.jpg"
+  },
+  {
+   "id": "living_lounge",
+   "name": "Living Lounge",
+   "blurb": "A warm lounge with a sofa, records and a big TV wall.",
+   "themed": false,
+   "default_theme": "smooth",
+   "themes": [
+    {
+     "id": "smooth",
+     "label": "Smooth",
+     "default": true,
+     "colors": {
+      "background": "#EDE4D8",
+      "wall": "#F1E9DE",
+      "floor": "#CBAD8C",
+      "wood": "#D2AD82",
+      "main": "#A3B394",
+      "accent_1": "#D98F6C",
+      "accent_2": "#7F9BB8",
+      "accent_3": "#E9CB8E",
+      "cream": "#F6F2EA",
+      "dark": "#2F2D2B"
+     },
+     "preview": "previews/living_lounge.png",
+     "thumb": "tools/studio/thumbs/living_lounge.jpg"
+    },
+    {
+     "id": "retro70s",
+     "label": "Retro 70s",
+     "default": false,
+     "colors": {
+      "background": "#F4EAD6",
+      "wall": "#F1E2C4",
+      "floor": "#B88454",
+      "wood": "#B57E48",
+      "main": "#D4A137",
+      "accent_1": "#CF6A2E",
+      "accent_2": "#2F8A86",
+      "accent_3": "#EBCB7E",
+      "cream": "#F6ECD9",
+      "dark": "#33251C"
+     },
+     "preview": "previews/living_lounge__retro70s.png",
+     "thumb": "tools/studio/thumbs/living_lounge__retro70s.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "sofa",
+     "kind": "floor",
+     "shape": "sofa",
+     "size": [
+      1.98,
+      0.99,
+      0.83
+     ],
+     "label": "Sofa",
+     "hint": "The big comfy seat",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "armchair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.68,
+      0.82,
+      1.0
+     ],
+     "label": "Armchair",
+     "hint": "A reading or lounge chair",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "media_console",
+     "kind": "floor",
+     "shape": "cabinet",
+     "size": [
+      1.8,
+      0.42,
+      0.49
+     ],
+     "label": "TV unit",
+     "hint": "The low media console",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "table",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      0.9,
+      0.55,
+      0.45
+     ],
+     "label": "Table",
+     "hint": "A table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "floor_lamp",
+     "kind": "floor",
+     "shape": "lamp",
+     "size": [
+      0.36,
+      0.36,
+      1.85
+     ],
+     "label": "Floor lamp",
+     "hint": "A standing lamp",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "plant",
+     "kind": "floor",
+     "shape": "plant",
+     "size": [
+      0.6,
+      0.6,
+      1.6
+     ],
+     "label": "Plant",
+     "hint": "A potted plant",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "rug",
+     "kind": "rug",
+     "shape": "rug",
+     "size": [
+      2.4,
+      1.7,
+      0.012
+     ],
+     "label": "Rug",
+     "hint": "The rug on the floor",
+     "where": "Lies on the floor"
+    },
+    {
+     "name": "wall_art",
+     "kind": "wall",
+     "shape": "frame",
+     "size": [
+      1.75,
+      0.04,
+      1.0
+     ],
+     "label": "Wall art",
+     "hint": "Pictures on the wall",
+     "where": "Hangs on the wall"
+    },
+    {
+     "name": "wall_shelf",
+     "kind": "wall",
+     "shape": "shelf",
+     "size": [
+      1.15,
+      0.12,
+      0.36
+     ],
+     "label": "Wall shelf",
+     "hint": "A shelf on the wall",
+     "where": "Hangs on the wall"
+    },
+    {
+     "name": "pet",
+     "kind": "floor",
+     "shape": "pet",
+     "size": [
+      0.7,
+      0.7,
+      0.3
+     ],
+     "label": "Pet",
+     "hint": "Your pet (a photo works great)",
+     "where": "Stands on the floor"
+    }
+   ],
+   "personas": [
+    "couple",
+    "streamer",
+    "designer"
+   ],
+   "name_sign": {
+    "fit": 13,
+    "max": 21,
+    "width_m": 0.68,
+    "letter_m": 0.12
+   },
+   "role_sign": {
+    "fit": 23,
+    "max": 38,
+    "width_m": 0.66,
+    "letter_m": 0.07
+   },
+   "hooks": {
+    "pictures": 9,
+    "links": [
+     "email",
+     "github",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/living_lounge.blend",
+   "sig": [
+    [
+     "templates/living_lounge.py",
+     1794229797,
+     95004
+    ],
+    [
+     "templates/output/living_lounge.blend",
+     1794231721,
+     1158250
+    ]
+   ],
+   "preview": "previews/living_lounge.png",
+   "thumb": "tools/studio/thumbs/living_lounge.jpg"
+  },
+  {
+   "id": "music_studio",
+   "name": "Music Studio",
+   "blurb": "Keys, speakers and acoustic panels in a warm home studio.",
+   "themed": false,
+   "default_theme": "evening",
+   "themes": [
+    {
+     "id": "evening",
+     "label": "Evening",
+     "default": true,
+     "colors": {
+      "background": "#26242C",
+      "wall": "#76625C",
+      "floor": "#8C5E40",
+      "wood": "#5E3D2C",
+      "main": "#A0582F",
+      "accent_1": "#E8A23D",
+      "accent_2": "#2BB3A7",
+      "accent_3": "#A8402F",
+      "cream": "#E6D6BF",
+      "dark": "#1C1B20"
+     },
+     "preview": "previews/music_studio.png",
+     "thumb": "tools/studio/thumbs/music_studio.jpg"
+    },
+    {
+     "id": "daylight",
+     "label": "Daylight",
+     "default": false,
+     "colors": {
+      "background": "#ECE6DD",
+      "wall": "#E3D8CA",
+      "floor": "#BD8E62",
+      "wood": "#8A5E40",
+      "main": "#B5683F",
+      "accent_1": "#E8A23D",
+      "accent_2": "#2BB3A7",
+      "accent_3": "#B84A36",
+      "cream": "#FBF5EA",
+      "dark": "#2A2930"
+     },
+     "preview": "previews/music_studio__daylight.png",
+     "thumb": "tools/studio/thumbs/music_studio__daylight.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "instrument",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.33,
+      0.42,
+      1.15
+     ],
+     "label": "Instrument",
+     "hint": "Your instrument",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "hero_prop",
+     "kind": "floor",
+     "shape": "lamp",
+     "size": [
+      0.5,
+      0.5,
+      1.7
+     ],
+     "label": "Star piece",
+     "hint": "The eye-catching centrepiece",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "desk",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.52,
+      0.7,
+      1.0
+     ],
+     "label": "Desk",
+     "hint": "Where you work",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "chair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.62,
+      0.6,
+      1.29
+     ],
+     "label": "Chair",
+     "hint": "A seat at the desk or table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "sofa",
+     "kind": "floor",
+     "shape": "sofa",
+     "size": [
+      1.64,
+      0.89,
+      0.78
+     ],
+     "label": "Sofa",
+     "hint": "The big comfy seat",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "shelf",
+     "kind": "floor",
+     "shape": "shelf",
+     "size": [
+      0.77,
+      0.39,
+      0.95
+     ],
+     "label": "Shelf unit",
+     "hint": "Shelving with books and boxes",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "speaker",
+     "kind": "floor",
+     "shape": "box",
+     "size": [
+      0.46,
+      0.24,
+      0.43
+     ],
+     "label": "Speakers",
+     "hint": "Speakers or studio monitors",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "floor_lamp",
+     "kind": "floor",
+     "shape": "lamp",
+     "size": [
+      0.4,
+      0.5,
+      1.81
+     ],
+     "label": "Floor lamp",
+     "hint": "A standing lamp",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "rug",
+     "kind": "rug",
+     "shape": "rug",
+     "size": [
+      2.0,
+      1.4,
+      0.012
+     ],
+     "label": "Rug",
+     "hint": "The rug on the floor",
+     "where": "Lies on the floor"
+    }
+   ],
+   "personas": [
+    "streamer",
+    "artist"
+   ],
+   "name_sign": {
+    "fit": 15,
+    "max": 25,
+    "width_m": 1.06,
+    "letter_m": 0.17
+   },
+   "role_sign": {
+    "fit": 27,
+    "max": 45,
+    "width_m": 1.0,
+    "letter_m": 0.09
+   },
+   "hooks": {
+    "pictures": 9,
+    "links": [
+     "email",
+     "github",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/music_studio.blend",
+   "sig": [
+    [
+     "templates/music_studio.py",
+     1794230745,
+     115320
+    ],
+    [
+     "templates/output/music_studio.blend",
+     1794231912,
+     828277
+    ]
+   ],
+   "preview": "previews/music_studio.png",
+   "thumb": "tools/studio/thumbs/music_studio.jpg"
+  },
+  {
+   "id": "plant_shop",
+   "name": "Plant Shop",
+   "blurb": "Terracotta, buckets of flowers and a potting bench.",
+   "themed": false,
+   "default_theme": "morning",
+   "themes": [
+    {
+     "id": "morning",
+     "label": "Morning",
+     "default": true,
+     "colors": {
+      "background": "#EEF2E6",
+      "wall": "#F4F2EC",
+      "floor": "#D6D3CB",
+      "wood": "#C99A6B",
+      "main": "#C2653D",
+      "accent_1": "#E3C9A2",
+      "accent_2": "#9DB8A8",
+      "accent_3": "#E9B949",
+      "cream": "#F7F3EA",
+      "dark": "#2F3B35"
+     },
+     "preview": "previews/plant_shop.png",
+     "thumb": "tools/studio/thumbs/plant_shop.jpg"
+    },
+    {
+     "id": "golden_hour",
+     "label": "Golden hour",
+     "default": false,
+     "colors": {
+      "background": "#F4E3CF",
+      "wall": "#F6ECDF",
+      "floor": "#DCD0C0",
+      "wood": "#C08A5A",
+      "main": "#C2653D",
+      "accent_1": "#E7C49A",
+      "accent_2": "#AFC0A0",
+      "accent_3": "#F0B84E",
+      "cream": "#FFF7EC",
+      "dark": "#33362C"
+     },
+     "preview": "previews/plant_shop__golden_hour.png",
+     "thumb": "tools/studio/thumbs/plant_shop__golden_hour.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "shelf",
+     "kind": "floor",
+     "shape": "shelf",
+     "size": [
+      0.6,
+      0.27,
+      1.4
+     ],
+     "label": "Shelf unit",
+     "hint": "Shelving with books and boxes",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "hanging_plant",
+     "kind": "hanging",
+     "shape": "plant",
+     "size": [
+      2.3,
+      0.3,
+      0.95
+     ],
+     "label": "Hanging plant",
+     "hint": "A plant hanging from above",
+     "where": "Hangs from above"
+    },
+    {
+     "name": "plant",
+     "kind": "floor",
+     "shape": "plant",
+     "size": [
+      0.7,
+      0.7,
+      1.85
+     ],
+     "label": "Plant",
+     "hint": "A potted plant",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "workbench",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.03,
+      0.53,
+      0.9
+     ],
+     "label": "Workbench",
+     "hint": "A big work table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "hero_prop",
+     "kind": "surface",
+     "shape": "box",
+     "size": [
+      0.5,
+      0.2,
+      0.32
+     ],
+     "label": "Star piece",
+     "hint": "The eye-catching centrepiece",
+     "where": "Sits on another piece"
+    },
+    {
+     "name": "stool",
+     "kind": "floor",
+     "shape": "stool",
+     "size": [
+      0.43,
+      0.39,
+      0.5
+     ],
+     "label": "Stool",
+     "hint": "A stool or bar seat",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "counter",
+     "kind": "floor",
+     "shape": "counter",
+     "size": [
+      1.2,
+      0.6,
+      0.92
+     ],
+     "label": "Counter",
+     "hint": "The shop or bar counter",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "table",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.18,
+      0.74,
+      0.75
+     ],
+     "label": "Table",
+     "hint": "A table",
+     "where": "Stands on the floor"
+    }
+   ],
+   "personas": [
+    "shop",
+    "designer"
+   ],
+   "name_sign": {
+    "fit": 15,
+    "max": 25,
+    "width_m": 1.0,
+    "letter_m": 0.16
+   },
+   "role_sign": {
+    "fit": 28,
+    "max": 46,
+    "width_m": 1.0,
+    "letter_m": 0.085
+   },
+   "hooks": {
+    "pictures": 4,
+    "links": [
+     "email",
+     "linkedin",
+     "website"
+    ],
+    "text": [
+     "logo",
+     "name",
+     "role",
+     "title"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/plant_shop.blend",
+   "sig": [
+    [
+     "templates/plant_shop.py",
+     1794231327,
+     110717
+    ],
+    [
+     "templates/output/plant_shop.blend",
+     1794232047,
+     2530428
+    ]
+   ],
+   "preview": "previews/plant_shop.png",
+   "thumb": "tools/studio/thumbs/plant_shop.jpg"
+  },
+  {
+   "id": "potion_shop",
+   "name": "Potion Shop",
+   "blurb": "A candle-lit apothecary with jars, bottles and a shop sign.",
+   "themed": false,
+   "default_theme": "moonlit",
+   "themes": [
+    {
+     "id": "moonlit",
+     "label": "Moonlit",
+     "default": true,
+     "colors": {
+      "background": "#17121F",
+      "wall": "#4A3E5C",
+      "floor": "#7C7064",
+      "wood": "#5A3A26",
+      "main": "#5E3F6E",
+      "accent_1": "#8CE6A0",
+      "accent_2": "#F08CC0",
+      "accent_3": "#7FD8F0",
+      "cream": "#E9DCC0",
+      "dark": "#1C1824"
+     },
+     "preview": "previews/potion_shop.png",
+     "thumb": "tools/studio/thumbs/potion_shop.jpg"
+    },
+    {
+     "id": "harvest",
+     "label": "Harvest",
+     "default": false,
+     "colors": {
+      "background": "#1E120D",
+      "wall": "#5A3B30",
+      "floor": "#A2603F",
+      "wood": "#4E301C",
+      "main": "#B5561F",
+      "accent_1": "#FFA03A",
+      "accent_2": "#B9F05A",
+      "accent_3": "#C68CFF",
+      "cream": "#F0DDB4",
+      "dark": "#1E130E"
+     },
+     "preview": "previews/potion_shop__harvest.png",
+     "thumb": "tools/studio/thumbs/potion_shop__harvest.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "shelf",
+     "kind": "floor",
+     "shape": "shelf",
+     "size": [
+      1.9,
+      0.52,
+      2.45
+     ],
+     "label": "Shelf unit",
+     "hint": "Shelving with books and boxes",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "counter",
+     "kind": "floor",
+     "shape": "counter",
+     "size": [
+      1.7,
+      0.62,
+      0.92
+     ],
+     "label": "Counter",
+     "hint": "The shop or bar counter",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "display_case",
+     "kind": "floor",
+     "shape": "cabinet",
+     "size": [
+      0.95,
+      0.45,
+      1.65
+     ],
+     "label": "Display case",
+     "hint": "Glass case for products",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "wall_shelf",
+     "kind": "wall",
+     "shape": "shelf",
+     "size": [
+      0.7,
+      0.26,
+      0.45
+     ],
+     "label": "Wall shelf",
+     "hint": "A shelf on the wall",
+     "where": "Hangs on the wall"
+    },
+    {
+     "name": "hanging_plant",
+     "kind": "hanging",
+     "shape": "plant",
+     "size": [
+      1.45,
+      0.38,
+      0.75
+     ],
+     "label": "Hanging plant",
+     "hint": "A plant hanging from above",
+     "where": "Hangs from above"
+    },
+    {
+     "name": "hero_prop",
+     "kind": "floor",
+     "shape": "box",
+     "size": [
+      1.1,
+      1.1,
+      1.45
+     ],
+     "label": "Star piece",
+     "hint": "The eye-catching centrepiece",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "armchair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.82,
+      0.96,
+      1.01
+     ],
+     "label": "Armchair",
+     "hint": "A reading or lounge chair",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "rug",
+     "kind": "rug",
+     "shape": "rug",
+     "size": [
+      2.6,
+      1.7,
+      0.012
+     ],
+     "label": "Rug",
+     "hint": "The rug on the floor",
+     "where": "Lies on the floor"
+    },
+    {
+     "name": "pet",
+     "kind": "floor",
+     "shape": "pet",
+     "size": [
+      0.3,
+      0.46,
+      0.4
+     ],
+     "label": "Pet",
+     "hint": "Your pet (a photo works great)",
+     "where": "Stands on the floor"
+    }
+   ],
+   "personas": [
+    "shop",
+    "writer",
+    "artist"
+   ],
+   "name_sign": {
+    "fit": 20,
+    "max": 33,
+    "width_m": 1.42,
+    "letter_m": 0.17
+   },
+   "role_sign": {
+    "fit": 43,
+    "max": 71,
+    "width_m": 1.32,
+    "letter_m": 0.075
+   },
+   "hooks": {
+    "pictures": 4,
+    "links": [
+     "email",
+     "github",
+     "linkedin",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role",
+     "skill",
+     "title"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/potion_shop.blend",
+   "sig": [
+    [
+     "templates/potion_shop.py",
+     1794231306,
+     122641
+    ],
+    [
+     "templates/output/potion_shop.blend",
+     1794231950,
+     1503628
+    ]
+   ],
+   "preview": "previews/potion_shop.png",
+   "thumb": "tools/studio/thumbs/potion_shop.jpg"
+  },
+  {
+   "id": "streamer_den",
+   "name": "Streamer Den",
+   "blurb": "Neon-lit gaming corner with a big desk and a comfy sofa.",
+   "themed": false,
+   "default_theme": "neon",
+   "themes": [
+    {
+     "id": "neon",
+     "label": "Neon",
+     "default": true,
+     "colors": {
+      "background": "#0F1124",
+      "wall": "#252B50",
+      "floor": "#6B5140",
+      "wood": "#2F2926",
+      "main": "#3C3F52",
+      "accent_1": "#9D4DFF",
+      "accent_2": "#22D3EE",
+      "accent_3": "#FF4FA3",
+      "cream": "#E6E3DC",
+      "dark": "#17181E"
+     },
+     "preview": "previews/streamer_den.png",
+     "thumb": "tools/studio/thumbs/streamer_den.jpg"
+    },
+    {
+     "id": "clean",
+     "label": "Clean",
+     "default": false,
+     "colors": {
+      "background": "#ECEEF3",
+      "wall": "#F1EFEA",
+      "floor": "#C9A47A",
+      "wood": "#EAE3D8",
+      "main": "#C9C5BE",
+      "accent_1": "#8A5CFF",
+      "accent_2": "#3CCFE0",
+      "accent_3": "#FF7FB6",
+      "cream": "#FFFFFF",
+      "dark": "#2A2C33"
+     },
+     "preview": "previews/streamer_den__clean.png",
+     "thumb": "tools/studio/thumbs/streamer_den__clean.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "desk",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.6,
+      1.1,
+      0.75
+     ],
+     "label": "Desk",
+     "hint": "Where you work",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "monitor",
+     "kind": "surface",
+     "shape": "monitor",
+     "size": [
+      1.15,
+      0.34,
+      0.65
+     ],
+     "label": "Computer screen",
+     "hint": "The monitor on the desk",
+     "where": "Sits on another piece"
+    },
+    {
+     "name": "speaker",
+     "kind": "surface",
+     "shape": "box",
+     "size": [
+      0.15,
+      0.2,
+      0.24
+     ],
+     "label": "Speakers",
+     "hint": "Speakers or studio monitors",
+     "where": "Sits on another piece"
+    },
+    {
+     "name": "chair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.7,
+      0.7,
+      1.36
+     ],
+     "label": "Chair",
+     "hint": "A seat at the desk or table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "floor_lamp",
+     "kind": "floor",
+     "shape": "lamp",
+     "size": [
+      0.6,
+      0.6,
+      1.75
+     ],
+     "label": "Floor lamp",
+     "hint": "A standing lamp",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "sofa",
+     "kind": "floor",
+     "shape": "sofa",
+     "size": [
+      1.8,
+      0.88,
+      0.66
+     ],
+     "label": "Sofa",
+     "hint": "The big comfy seat",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "hero_prop",
+     "kind": "floor",
+     "shape": "cabinet",
+     "size": [
+      0.51,
+      0.52,
+      1.54
+     ],
+     "label": "Star piece",
+     "hint": "The eye-catching centrepiece",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "shelf",
+     "kind": "floor",
+     "shape": "shelf",
+     "size": [
+      1.47,
+      0.39,
+      0.77
+     ],
+     "label": "Shelf unit",
+     "hint": "Shelving with books and boxes",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "wall_art",
+     "kind": "wall",
+     "shape": "frame",
+     "size": [
+      0.9,
+      0.05,
+      1.0
+     ],
+     "label": "Wall art",
+     "hint": "Pictures on the wall",
+     "where": "Hangs on the wall"
+    },
+    {
+     "name": "rug",
+     "kind": "rug",
+     "shape": "rug",
+     "size": [
+      2.2,
+      1.55,
+      0.012
+     ],
+     "label": "Rug",
+     "hint": "The rug on the floor",
+     "where": "Lies on the floor"
+    }
+   ],
+   "personas": [
+    "streamer"
+   ],
+   "name_sign": {
+    "fit": 15,
+    "max": 25,
+    "width_m": 1.3,
+    "letter_m": 0.2
+   },
+   "role_sign": {
+    "fit": 26,
+    "max": 43,
+    "width_m": 1.2,
+    "letter_m": 0.11
+   },
+   "hooks": {
+    "pictures": 6,
+    "links": [
+     "email",
+     "github",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/streamer_den.blend",
+   "sig": [
+    [
+     "templates/streamer_den.py",
+     1794230236,
+     116389
+    ],
+    [
+     "templates/output/streamer_den.blend",
+     1794231682,
+     1355262
+    ]
+   ],
+   "preview": "previews/streamer_den.png",
+   "thumb": "tools/studio/thumbs/streamer_den.jpg"
+  },
+  {
+   "id": "animal_city_apartment",
+   "name": "Animal City Apartment",
+   "blurb": "A bright city flat with a view of a busy animal metropolis.",
+   "themed": true,
+   "default_theme": "sunny_downtown",
+   "themes": [
+    {
+     "id": "sunny_downtown",
+     "label": "Sunny downtown",
+     "default": true,
+     "colors": {
+      "background": "#DCEFEA",
+      "wall": "#FBF8F2",
+      "floor": "#D3A570",
+      "wood": "#DDB582",
+      "main": "#1E9E96",
+      "accent_1": "#F5862A",
+      "accent_2": "#F8C531",
+      "accent_3": "#A3CC3C",
+      "cream": "#FFF8EC",
+      "dark": "#2B2D3A"
+     },
+     "preview": "templates/output/animal_city_apartment.png",
+     "thumb": "tools/studio/thumbs/animal_city_apartment.jpg"
+    },
+    {
+     "id": "neon_nightlife",
+     "label": "Neon nightlife",
+     "default": false,
+     "colors": {
+      "background": "#231C3D",
+      "wall": "#A89FD8",
+      "floor": "#9C7054",
+      "wood": "#BC8D64",
+      "main": "#13B5AC",
+      "accent_1": "#FF6B3D",
+      "accent_2": "#FFCF3A",
+      "accent_3": "#B5EE3A",
+      "cream": "#F6EEFF",
+      "dark": "#1B1730"
+     },
+     "preview": "templates/output/animal_city_apartment__neon_nightlife.png",
+     "thumb": "tools/studio/thumbs/animal_city_apartment__neon_nightlife.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "desk",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.2,
+      0.6,
+      0.75
+     ],
+     "label": "Desk",
+     "hint": "Where you work",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "lamp",
+     "kind": "surface",
+     "shape": "lamp",
+     "size": [
+      0.26,
+      0.2,
+      0.38
+     ],
+     "label": "Table lamp",
+     "hint": "A lamp on a surface",
+     "where": "Sits on another piece"
+    },
+    {
+     "name": "chair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.56,
+      0.58,
+      0.92
+     ],
+     "label": "Chair",
+     "hint": "A seat at the desk or table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "floor_lamp",
+     "kind": "floor",
+     "shape": "lamp",
+     "size": [
+      0.46,
+      0.46,
+      2.5
+     ],
+     "label": "Floor lamp",
+     "hint": "A standing lamp",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "armchair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.8,
+      0.78,
+      0.76
+     ],
+     "label": "Armchair",
+     "hint": "A reading or lounge chair",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "rug",
+     "kind": "rug",
+     "shape": "rug",
+     "size": [
+      2.0,
+      2.0,
+      0.015
+     ],
+     "label": "Rug",
+     "hint": "The rug on the floor",
+     "where": "Lies on the floor"
+    },
+    {
+     "name": "pet",
+     "kind": "floor",
+     "shape": "pet",
+     "size": [
+      0.3,
+      0.42,
+      0.2
+     ],
+     "label": "Pet",
+     "hint": "Your pet (a photo works great)",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "bed",
+     "kind": "floor",
+     "shape": "bed",
+     "size": [
+      1.06,
+      2.1,
+      1.75
+     ],
+     "label": "Bed",
+     "hint": "The bed and bedding",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "plant",
+     "kind": "floor",
+     "shape": "plant",
+     "size": [
+      0.7,
+      0.7,
+      1.85
+     ],
+     "label": "Plant",
+     "hint": "A potted plant",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "wall_shelf",
+     "kind": "wall",
+     "shape": "shelf",
+     "size": [
+      0.9,
+      0.17,
+      0.34
+     ],
+     "label": "Wall shelf",
+     "hint": "A shelf on the wall",
+     "where": "Hangs on the wall"
+    }
+   ],
+   "personas": [
+    "streamer",
+    "student",
+    "teacher"
+   ],
+   "name_sign": {
+    "fit": 16,
+    "max": 26,
+    "width_m": 0.803,
+    "letter_m": 0.118
+   },
+   "role_sign": {
+    "fit": 21,
+    "max": 35,
+    "width_m": 0.753,
+    "letter_m": 0.085
+   },
+   "hooks": {
+    "pictures": 6,
+    "links": [
+     "email",
+     "github",
+     "linkedin",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role",
+     "skill",
+     "tagline"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/animal_city_apartment.blend",
+   "sig": [
+    [
+     "templates/animal_city_apartment.py",
+     1794252208,
+     129982
+    ],
+    [
+     "templates/output/animal_city_apartment.blend",
+     1794252340,
+     1274330
+    ]
+   ],
+   "preview": "templates/output/animal_city_apartment.png",
+   "thumb": "tools/studio/thumbs/animal_city_apartment.jpg"
+  },
+  {
+   "id": "fairytale_atelier",
+   "name": "Fairy-tale Gown Atelier",
+   "blurb": "A dressmaker's atelier with gown rails, a mirror and a vanity.",
+   "themed": true,
+   "default_theme": "morning_blush",
+   "themes": [
+    {
+     "id": "morning_blush",
+     "label": "Morning blush",
+     "default": true,
+     "colors": {
+      "background": "#F3E4E1",
+      "wall": "#F4D8D4",
+      "floor": "#E6D1BA",
+      "wood": "#D9B996",
+      "main": "#E2A2AC",
+      "accent_1": "#C77F8B",
+      "accent_2": "#F2DDB4",
+      "accent_3": "#A9B99A",
+      "cream": "#FBF5EC",
+      "dark": "#4A363C"
+     },
+     "preview": "templates/output/fairytale_atelier.png",
+     "thumb": "tools/studio/thumbs/fairytale_atelier.jpg"
+    },
+    {
+     "id": "midnight_ball",
+     "label": "Midnight ball",
+     "default": false,
+     "colors": {
+      "background": "#191B30",
+      "wall": "#36406E",
+      "floor": "#6E5C66",
+      "wood": "#8A7A92",
+      "main": "#8C79B8",
+      "accent_1": "#B595D9",
+      "accent_2": "#DCDFEA",
+      "accent_3": "#7F96C9",
+      "cream": "#ECE9F4",
+      "dark": "#15162A"
+     },
+     "preview": "templates/output/fairytale_atelier__midnight_ball.png",
+     "thumb": "tools/studio/thumbs/fairytale_atelier__midnight_ball.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "clothes_rack",
+     "kind": "floor",
+     "shape": "shelf",
+     "size": [
+      2.9,
+      0.9,
+      2.12
+     ],
+     "label": "Clothes rail",
+     "hint": "A rail of garments",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "vanity",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.05,
+      0.46,
+      1.5
+     ],
+     "label": "Vanity table",
+     "hint": "A dressing table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "stool",
+     "kind": "floor",
+     "shape": "stool",
+     "size": [
+      0.46,
+      0.46,
+      0.47
+     ],
+     "label": "Stool",
+     "hint": "A stool or bar seat",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "mirror",
+     "kind": "floor",
+     "shape": "frame",
+     "size": [
+      0.72,
+      0.34,
+      1.82
+     ],
+     "label": "Mirror",
+     "hint": "A standing or wall mirror",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "hero_prop",
+     "kind": "surface",
+     "shape": "box",
+     "size": [
+      0.84,
+      0.84,
+      1.48
+     ],
+     "label": "Star piece",
+     "hint": "The eye-catching centrepiece",
+     "where": "Sits on another piece"
+    },
+    {
+     "name": "pendant_lamp",
+     "kind": "hanging",
+     "shape": "lamp",
+     "size": [
+      0.75,
+      0.75,
+      0.95
+     ],
+     "label": "Ceiling lamp",
+     "hint": "A lamp hanging from the ceiling",
+     "where": "Hangs from above"
+    },
+    {
+     "name": "easel",
+     "kind": "floor",
+     "shape": "frame",
+     "size": [
+      0.62,
+      0.62,
+      1.78
+     ],
+     "label": "Easel",
+     "hint": "A painting easel",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "display_case",
+     "kind": "floor",
+     "shape": "cabinet",
+     "size": [
+      0.5,
+      0.5,
+      1.45
+     ],
+     "label": "Display case",
+     "hint": "Glass case for products",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "workbench",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      0.9,
+      0.5,
+      0.78
+     ],
+     "label": "Workbench",
+     "hint": "A big work table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "rug",
+     "kind": "rug",
+     "shape": "rug",
+     "size": [
+      2.4,
+      2.4,
+      0.012
+     ],
+     "label": "Rug",
+     "hint": "The rug on the floor",
+     "where": "Lies on the floor"
+    }
+   ],
+   "personas": [
+    "shop",
+    "designer",
+    "couple",
+    "artist"
+   ],
+   "name_sign": {
+    "fit": 18,
+    "max": 30,
+    "width_m": 1.3,
+    "letter_m": 0.17
+   },
+   "role_sign": {
+    "fit": 28,
+    "max": 46,
+    "width_m": 1.1,
+    "letter_m": 0.095
+   },
+   "hooks": {
+    "pictures": 4,
+    "links": [
+     "email",
+     "linkedin",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role",
+     "title"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/fairytale_atelier.blend",
+   "sig": [
+    [
+     "templates/fairytale_atelier.py",
+     1794248584,
+     114345
+    ],
+    [
+     "templates/output/fairytale_atelier.blend",
+     1794248690,
+     1245435
+    ]
+   ],
+   "preview": "templates/output/fairytale_atelier.png",
+   "thumb": "tools/studio/thumbs/fairytale_atelier.jpg"
+  },
+  {
+   "id": "glow_beauty_bar",
+   "name": "Glow Beauty Bar",
+   "blurb": "A glowing beauty bar with salon chairs and a mirror wall.",
+   "themed": true,
+   "default_theme": "milk_blush",
+   "themes": [
+    {
+     "id": "milk_blush",
+     "label": "Milk blush",
+     "default": true,
+     "colors": {
+      "background": "#F4E3E1",
+      "wall": "#F8EEEA",
+      "floor": "#F2E2DC",
+      "wood": "#E3C9AE",
+      "main": "#E9A4B2",
+      "accent_1": "#F2588E",
+      "accent_2": "#F6CBCF",
+      "accent_3": "#B4C8AC",
+      "cream": "#FFFAF6",
+      "dark": "#4B3A41"
+     },
+     "preview": "templates/output/glow_beauty_bar.png",
+     "thumb": "tools/studio/thumbs/glow_beauty_bar.jpg"
+    },
+    {
+     "id": "jelly_neon",
+     "label": "Jelly neon",
+     "default": false,
+     "colors": {
+      "background": "#241C36",
+      "wall": "#56467E",
+      "floor": "#5A4C80",
+      "wood": "#9C88B8",
+      "main": "#B89BF2",
+      "accent_1": "#FF4FA8",
+      "accent_2": "#7563A8",
+      "accent_3": "#7FE3D6",
+      "cream": "#F4EEFF",
+      "dark": "#1E1A2C"
+     },
+     "preview": "templates/output/glow_beauty_bar__jelly_neon.png",
+     "thumb": "tools/studio/thumbs/glow_beauty_bar__jelly_neon.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "wall_shelf",
+     "kind": "wall",
+     "shape": "shelf",
+     "size": [
+      1.45,
+      0.13,
+      1.25
+     ],
+     "label": "Wall shelf",
+     "hint": "A shelf on the wall",
+     "where": "Hangs on the wall"
+    },
+    {
+     "name": "desk",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.1,
+      0.48,
+      0.76
+     ],
+     "label": "Desk",
+     "hint": "Where you work",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "stool",
+     "kind": "floor",
+     "shape": "stool",
+     "size": [
+      0.5,
+      0.5,
+      0.85
+     ],
+     "label": "Stool",
+     "hint": "A stool or bar seat",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "chair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.6,
+      0.6,
+      0.8
+     ],
+     "label": "Chair",
+     "hint": "A seat at the desk or table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "salon_chair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.95,
+      1.55,
+      1.45
+     ],
+     "label": "Salon chair",
+     "hint": "A salon or beauty chair",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "plant",
+     "kind": "floor",
+     "shape": "plant",
+     "size": [
+      0.42,
+      0.42,
+      1.35
+     ],
+     "label": "Plant",
+     "hint": "A potted plant",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "counter",
+     "kind": "floor",
+     "shape": "counter",
+     "size": [
+      1.4,
+      0.6,
+      1.07
+     ],
+     "label": "Counter",
+     "hint": "The shop or bar counter",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "mirror",
+     "kind": "wall",
+     "shape": "frame",
+     "size": [
+      0.72,
+      0.06,
+      0.98
+     ],
+     "label": "Mirror",
+     "hint": "A standing or wall mirror",
+     "where": "Hangs on the wall"
+    },
+    {
+     "name": "floor_lamp",
+     "kind": "floor",
+     "shape": "lamp",
+     "size": [
+      0.46,
+      0.46,
+      1.75
+     ],
+     "label": "Floor lamp",
+     "hint": "A standing lamp",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "sofa",
+     "kind": "floor",
+     "shape": "sofa",
+     "size": [
+      1.38,
+      0.78,
+      0.8
+     ],
+     "label": "Sofa",
+     "hint": "The big comfy seat",
+     "where": "Stands on the floor"
+    }
+   ],
+   "personas": [
+    "shop",
+    "artist"
+   ],
+   "name_sign": {
+    "fit": 11,
+    "max": 18,
+    "width_m": 1.08,
+    "letter_m": 0.23
+   },
+   "role_sign": {
+    "fit": 20,
+    "max": 33,
+    "width_m": 0.95,
+    "letter_m": 0.115
+   },
+   "hooks": {
+    "pictures": 4,
+    "links": [
+     "email",
+     "github",
+     "linkedin",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/glow_beauty_bar.blend",
+   "sig": [
+    [
+     "templates/glow_beauty_bar.py",
+     1794251917,
+     101591
+    ],
+    [
+     "templates/output/glow_beauty_bar.blend",
+     1794252025,
+     2120475
+    ]
+   ],
+   "preview": "templates/output/glow_beauty_bar.png",
+   "thumb": "tools/studio/thumbs/glow_beauty_bar.jpg"
+  },
+  {
+   "id": "hearth_cottage",
+   "name": "Hearth Cottage",
+   "blurb": "A countryside cottage with a fireplace and hand-painted charm.",
+   "themed": true,
+   "default_theme": "summer_afternoon",
+   "themes": [
+    {
+     "id": "summer_afternoon",
+     "label": "Summer afternoon",
+     "default": true,
+     "colors": {
+      "background": "#BFDCEA",
+      "wall": "#F4ECDA",
+      "floor": "#C8975E",
+      "wood": "#E0B57A",
+      "main": "#9AB48A",
+      "accent_1": "#D2664A",
+      "accent_2": "#F0C45C",
+      "accent_3": "#7FB0D8",
+      "cream": "#FBF5E8",
+      "dark": "#2F2B29"
+     },
+     "preview": "templates/output/hearth_cottage.png",
+     "thumb": "tools/studio/thumbs/hearth_cottage.jpg"
+    },
+    {
+     "id": "rainy_lantern",
+     "label": "Rainy lantern",
+     "default": false,
+     "colors": {
+      "background": "#33435A",
+      "wall": "#EADDC3",
+      "floor": "#B5875A",
+      "wood": "#D4A56C",
+      "main": "#88A27C",
+      "accent_1": "#C85E46",
+      "accent_2": "#E8B653",
+      "accent_3": "#6F9CC4",
+      "cream": "#F6EEDD",
+      "dark": "#2A2726"
+     },
+     "preview": "templates/output/hearth_cottage__rainy_lantern.png",
+     "thumb": "tools/studio/thumbs/hearth_cottage__rainy_lantern.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "stove",
+     "kind": "floor",
+     "shape": "box",
+     "size": [
+      0.39,
+      0.37,
+      0.82
+     ],
+     "label": "Stove",
+     "hint": "A stove or range",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "wall_shelf",
+     "kind": "wall",
+     "shape": "shelf",
+     "size": [
+      0.8,
+      0.24,
+      0.72
+     ],
+     "label": "Wall shelf",
+     "hint": "A shelf on the wall",
+     "where": "Hangs on the wall"
+    },
+    {
+     "name": "pet",
+     "kind": "floor",
+     "shape": "pet",
+     "size": [
+      0.5,
+      0.5,
+      0.32
+     ],
+     "label": "Pet",
+     "hint": "Your pet (a photo works great)",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "table",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.2,
+      0.75,
+      0.76
+     ],
+     "label": "Table",
+     "hint": "A table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "chair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.46,
+      0.5,
+      0.9
+     ],
+     "label": "Chair",
+     "hint": "A seat at the desk or table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "window_seat",
+     "kind": "floor",
+     "shape": "sofa",
+     "size": [
+      1.3,
+      0.5,
+      0.48
+     ],
+     "label": "Window seat",
+     "hint": "A cushioned window seat",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "rug",
+     "kind": "rug",
+     "shape": "rug",
+     "size": [
+      1.8,
+      1.2,
+      0.012
+     ],
+     "label": "Rug",
+     "hint": "The rug on the floor",
+     "where": "Lies on the floor"
+    },
+    {
+     "name": "pendant_lamp",
+     "kind": "hanging",
+     "shape": "lamp",
+     "size": [
+      0.45,
+      0.45,
+      0.8
+     ],
+     "label": "Ceiling lamp",
+     "hint": "A lamp hanging from the ceiling",
+     "where": "Hangs from above"
+    },
+    {
+     "name": "bed",
+     "kind": "surface",
+     "shape": "bed",
+     "size": [
+      0.9,
+      1.9,
+      0.45
+     ],
+     "label": "Bed",
+     "hint": "The bed and bedding",
+     "where": "Sits on another piece"
+    }
+   ],
+   "personas": [
+    "artist",
+    "writer",
+    "teacher",
+    "couple"
+   ],
+   "name_sign": {
+    "fit": 14,
+    "max": 23,
+    "width_m": 0.94,
+    "letter_m": 0.16
+   },
+   "role_sign": {
+    "fit": 24,
+    "max": 40,
+    "width_m": 0.94,
+    "letter_m": 0.095
+   },
+   "hooks": {
+    "pictures": 4,
+    "links": [
+     "email",
+     "linkedin",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/hearth_cottage.blend",
+   "sig": [
+    [
+     "templates/hearth_cottage.py",
+     1794250454,
+     151165
+    ],
+    [
+     "templates/output/hearth_cottage.blend",
+     1794251408,
+     3564606
+    ]
+   ],
+   "preview": "templates/output/hearth_cottage.png",
+   "thumb": "tools/studio/thumbs/hearth_cottage.jpg"
+  },
+  {
+   "id": "lantern_ramen_bar",
+   "name": "Lantern Ramen Bar",
+   "blurb": "A late-night noodle counter under paper lanterns.",
+   "themed": true,
+   "default_theme": "lantern_night",
+   "themes": [
+    {
+     "id": "lantern_night",
+     "label": "Lantern night",
+     "default": true,
+     "colors": {
+      "background": "#121826",
+      "wall": "#E6D6BB",
+      "floor": "#575B63",
+      "wood": "#DDB988",
+      "main": "#B8322B",
+      "accent_1": "#3D6CA6",
+      "accent_2": "#F1B652",
+      "accent_3": "#5E9C8F",
+      "cream": "#F3EADA",
+      "dark": "#1D1C21"
+     },
+     "preview": "templates/output/lantern_ramen_bar.png",
+     "thumb": "tools/studio/thumbs/lantern_ramen_bar.jpg"
+    },
+    {
+     "id": "neon_rain",
+     "label": "Neon rain",
+     "default": false,
+     "colors": {
+      "background": "#0C0A1A",
+      "wall": "#3A3550",
+      "floor": "#2E2C3A",
+      "wood": "#9C7C66",
+      "main": "#E0399E",
+      "accent_1": "#1FC8E0",
+      "accent_2": "#F7D046",
+      "accent_3": "#8C5CF0",
+      "cream": "#EDE7F6",
+      "dark": "#141220"
+     },
+     "preview": "templates/output/lantern_ramen_bar__neon_rain.png",
+     "thumb": "tools/studio/thumbs/lantern_ramen_bar__neon_rain.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "counter",
+     "kind": "floor",
+     "shape": "counter",
+     "size": [
+      3.33,
+      0.6,
+      1.1
+     ],
+     "label": "Counter",
+     "hint": "The shop or bar counter",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "stool",
+     "kind": "floor",
+     "shape": "stool",
+     "size": [
+      0.36,
+      0.36,
+      0.7
+     ],
+     "label": "Stool",
+     "hint": "A stool or bar seat",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "stove",
+     "kind": "floor",
+     "shape": "box",
+     "size": [
+      1.25,
+      0.62,
+      1.05
+     ],
+     "label": "Stove",
+     "hint": "A stove or range",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "pendant_lamp",
+     "kind": "hanging",
+     "shape": "lamp",
+     "size": [
+      2.2,
+      0.3,
+      0.62
+     ],
+     "label": "Ceiling lamp",
+     "hint": "A lamp hanging from the ceiling",
+     "where": "Hangs from above"
+    },
+    {
+     "name": "hero_prop",
+     "kind": "floor",
+     "shape": "box",
+     "size": [
+      0.65,
+      0.32,
+      1.61
+     ],
+     "label": "Star piece",
+     "hint": "The eye-catching centrepiece",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "wall_shelf",
+     "kind": "wall",
+     "shape": "shelf",
+     "size": [
+      1.1,
+      0.22,
+      0.48
+     ],
+     "label": "Wall shelf",
+     "hint": "A shelf on the wall",
+     "where": "Hangs on the wall"
+    },
+    {
+     "name": "planter",
+     "kind": "floor",
+     "shape": "plant",
+     "size": [
+      0.42,
+      0.42,
+      1.6
+     ],
+     "label": "Planter",
+     "hint": "A big planter box",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "table",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      0.61,
+      0.61,
+      0.76
+     ],
+     "label": "Table",
+     "hint": "A table",
+     "where": "Stands on the floor"
+    }
+   ],
+   "personas": [
+    "shop",
+    "streamer"
+   ],
+   "name_sign": {
+    "fit": 21,
+    "max": 35,
+    "width_m": 1.46,
+    "letter_m": 0.17
+   },
+   "role_sign": {
+    "fit": 32,
+    "max": 53,
+    "width_m": 1.0,
+    "letter_m": 0.075
+   },
+   "hooks": {
+    "pictures": 5,
+    "links": [
+     "email",
+     "github",
+     "linkedin",
+     "website"
+    ],
+    "text": [
+     "logo",
+     "name",
+     "role",
+     "tagline",
+     "title"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/lantern_ramen_bar.blend",
+   "sig": [
+    [
+     "templates/lantern_ramen_bar.py",
+     1794251841,
+     121150
+    ],
+    [
+     "templates/output/lantern_ramen_bar.blend",
+     1794251981,
+     1240808
+    ]
+   ],
+   "preview": "templates/output/lantern_ramen_bar.png",
+   "thumb": "tools/studio/thumbs/lantern_ramen_bar.jpg"
+  },
+  {
+   "id": "tiny_planet_stargazer",
+   "name": "Tiny Planet Stargazer",
+   "blurb": "A tiny planet with a telescope under the stars.",
+   "themed": true,
+   "default_theme": "sunset_hour",
+   "themes": [
+    {
+     "id": "sunset_hour",
+     "label": "Sunset hour",
+     "default": true,
+     "colors": {
+      "background": "#ECB8A6",
+      "wall": "#F4E8D8",
+      "floor": "#93B865",
+      "wood": "#C59B6D",
+      "main": "#4F72A8",
+      "accent_1": "#D6455B",
+      "accent_2": "#F7C66B",
+      "accent_3": "#A18BD0",
+      "cream": "#FBF3E4",
+      "dark": "#2C2848"
+     },
+     "preview": "templates/output/tiny_planet_stargazer.png",
+     "thumb": "tools/studio/thumbs/tiny_planet_stargazer.jpg"
+    },
+    {
+     "id": "starry_night",
+     "label": "Starry night",
+     "default": false,
+     "colors": {
+      "background": "#1D1B45",
+      "wall": "#E6DFEE",
+      "floor": "#6A9A70",
+      "wood": "#BC9168",
+      "main": "#5272BF",
+      "accent_1": "#E5536D",
+      "accent_2": "#FFD27A",
+      "accent_3": "#A28CEB",
+      "cream": "#F6F1FB",
+      "dark": "#211F44"
+     },
+     "preview": "templates/output/tiny_planet_stargazer__starry_night.png",
+     "thumb": "tools/studio/thumbs/tiny_planet_stargazer__starry_night.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "telescope",
+     "kind": "floor",
+     "shape": "lamp",
+     "size": [
+      0.8,
+      0.8,
+      1.62
+     ],
+     "label": "Telescope",
+     "hint": "A telescope on a tripod",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "chair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.62,
+      1.0,
+      1.05
+     ],
+     "label": "Chair",
+     "hint": "A seat at the desk or table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "side_table",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      0.45,
+      0.45,
+      0.46
+     ],
+     "label": "Side table",
+     "hint": "Bedside or sofa-side table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "rug",
+     "kind": "rug",
+     "shape": "rug",
+     "size": [
+      1.16,
+      1.16,
+      0.014
+     ],
+     "label": "Rug",
+     "hint": "The rug on the floor",
+     "where": "Lies on the floor"
+    },
+    {
+     "name": "hero_prop",
+     "kind": "floor",
+     "shape": "box",
+     "size": [
+      0.4,
+      0.4,
+      1.26
+     ],
+     "label": "Star piece",
+     "hint": "The eye-catching centrepiece",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "lamp",
+     "kind": "floor",
+     "shape": "lamp",
+     "size": [
+      0.44,
+      0.44,
+      0.48
+     ],
+     "label": "Table lamp",
+     "hint": "A lamp on a surface",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "floor_lamp",
+     "kind": "floor",
+     "shape": "lamp",
+     "size": [
+      1.3,
+      0.32,
+      2.26
+     ],
+     "label": "Floor lamp",
+     "hint": "A standing lamp",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "trunk",
+     "kind": "floor",
+     "shape": "box",
+     "size": [
+      0.86,
+      0.5,
+      0.92
+     ],
+     "label": "Trunk",
+     "hint": "A travel trunk",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "planter",
+     "kind": "floor",
+     "shape": "plant",
+     "size": [
+      0.6,
+      0.22,
+      0.55
+     ],
+     "label": "Planter",
+     "hint": "A big planter box",
+     "where": "Stands on the floor"
+    }
+   ],
+   "personas": [
+    "artist",
+    "designer",
+    "teacher",
+    "writer"
+   ],
+   "name_sign": {
+    "fit": 18,
+    "max": 30,
+    "width_m": 0.94,
+    "letter_m": 0.125
+   },
+   "role_sign": {
+    "fit": 24,
+    "max": 40,
+    "width_m": 0.88,
+    "letter_m": 0.09
+   },
+   "hooks": {
+    "pictures": 3,
+    "links": [
+     "email",
+     "github",
+     "linkedin",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role",
+     "tagline",
+     "title"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/tiny_planet_stargazer.blend",
+   "sig": [
+    [
+     "templates/tiny_planet_stargazer.py",
+     1794250510,
+     121748
+    ],
+    [
+     "templates/output/tiny_planet_stargazer.blend",
+     1794251392,
+     1561700
+    ]
+   ],
+   "preview": "templates/output/tiny_planet_stargazer.png",
+   "thumb": "tools/studio/thumbs/tiny_planet_stargazer.jpg"
+  },
+  {
+   "id": "wizard_school_dorm",
+   "name": "Wizard School Dorm",
+   "blurb": "A magic-school dorm with bunk beds, banners and a trunk.",
+   "themed": true,
+   "default_theme": "candlelit_night",
+   "themes": [
+    {
+     "id": "candlelit_night",
+     "label": "Candlelit night",
+     "default": true,
+     "colors": {
+      "background": "#1D2346",
+      "wall": "#8C93A6",
+      "floor": "#8A6444",
+      "wood": "#6A442C",
+      "main": "#6B3B66",
+      "accent_1": "#2D7C7A",
+      "accent_2": "#D9A84E",
+      "accent_3": "#B5583A",
+      "cream": "#F0E4CB",
+      "dark": "#211B22"
+     },
+     "preview": "templates/output/wizard_school_dorm.png",
+     "thumb": "tools/studio/thumbs/wizard_school_dorm.jpg"
+    },
+    {
+     "id": "autumn_term",
+     "label": "Autumn term",
+     "default": false,
+     "colors": {
+      "background": "#F2E3CB",
+      "wall": "#A1A2A6",
+      "floor": "#A27A52",
+      "wood": "#78502F",
+      "main": "#6E3E66",
+      "accent_1": "#2F8783",
+      "accent_2": "#DCAB4C",
+      "accent_3": "#BF6136",
+      "cream": "#F5ECD8",
+      "dark": "#2A2224"
+     },
+     "preview": "templates/output/wizard_school_dorm__autumn_term.png",
+     "thumb": "tools/studio/thumbs/wizard_school_dorm__autumn_term.jpg"
+    }
+   ],
+   "slots": [
+    {
+     "name": "bed",
+     "kind": "floor",
+     "shape": "bed",
+     "size": [
+      1.04,
+      2.1,
+      2.3
+     ],
+     "label": "Bed",
+     "hint": "The bed and bedding",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "trunk",
+     "kind": "floor",
+     "shape": "box",
+     "size": [
+      0.86,
+      0.48,
+      0.56
+     ],
+     "label": "Trunk",
+     "hint": "A travel trunk",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "armchair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.78,
+      0.84,
+      1.06
+     ],
+     "label": "Armchair",
+     "hint": "A reading or lounge chair",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "desk",
+     "kind": "floor",
+     "shape": "table",
+     "size": [
+      1.0,
+      0.55,
+      0.75
+     ],
+     "label": "Desk",
+     "hint": "Where you work",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "chair",
+     "kind": "floor",
+     "shape": "chair",
+     "size": [
+      0.5,
+      0.52,
+      0.92
+     ],
+     "label": "Chair",
+     "hint": "A seat at the desk or table",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "rug",
+     "kind": "rug",
+     "shape": "rug",
+     "size": [
+      1.8,
+      1.8,
+      0.012
+     ],
+     "label": "Rug",
+     "hint": "The rug on the floor",
+     "where": "Lies on the floor"
+    },
+    {
+     "name": "fireplace",
+     "kind": "floor",
+     "shape": "box",
+     "size": [
+      1.3,
+      0.3,
+      1.5
+     ],
+     "label": "Fireplace",
+     "hint": "The fireplace",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "bookcase",
+     "kind": "floor",
+     "shape": "shelf",
+     "size": [
+      0.6,
+      0.32,
+      1.75
+     ],
+     "label": "Bookcase",
+     "hint": "A tall bookcase",
+     "where": "Stands on the floor"
+    },
+    {
+     "name": "pet",
+     "kind": "floor",
+     "shape": "pet",
+     "size": [
+      0.46,
+      0.46,
+      1.4
+     ],
+     "label": "Pet",
+     "hint": "Your pet (a photo works great)",
+     "where": "Stands on the floor"
+    }
+   ],
+   "personas": [
+    "student",
+    "writer",
+    "streamer"
+   ],
+   "name_sign": {
+    "fit": 20,
+    "max": 33,
+    "width_m": 1.3,
+    "letter_m": 0.155
+   },
+   "role_sign": {
+    "fit": 30,
+    "max": 50,
+    "width_m": 1.1,
+    "letter_m": 0.09
+   },
+   "hooks": {
+    "pictures": 4,
+    "links": [
+     "email",
+     "github",
+     "linkedin",
+     "website"
+    ],
+    "text": [
+     "name",
+     "role"
+    ]
+   },
+   "source": "blend",
+   "blend": "templates/output/wizard_school_dorm.blend",
+   "sig": [
+    [
+     "templates/wizard_school_dorm.py",
+     1794252498,
+     133952
+    ],
+    [
+     "templates/output/wizard_school_dorm.blend",
+     1794252555,
+     1222722
+    ]
+   ],
+   "preview": "templates/output/wizard_school_dorm.png",
+   "thumb": "tools/studio/thumbs/wizard_school_dorm.jpg"
+  }
+ ]
+}
