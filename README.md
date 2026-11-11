@@ -7,7 +7,7 @@ Turn your work into a cosy 3D room that people remember. You get a 3D website vi
 ## The easy way (no typing)
 1. Install **Blender 4.2 or newer** (free): [blender.org/download](https://www.blender.org/download/)
 2. Double-click **Start.command** (Mac), **Start.bat** (Windows) or **start.sh** (Linux).
-3. RoomKit Studio opens in your browser. Pick who you are, fill in your details, drag in your project pictures, choose one of 17 rooms, and click **Build my portfolio**.
+3. RoomKit Studio opens in your browser. Pick who it's for and one of the 17 rooms it suggests, fill in your details, drag in your project pictures, and click **Build my portfolio**.
 
 Want your own chair, plant or pet in the room? Drop a photo onto it in **Make it yours**. The kit can turn it into a 3D model with an AI service (Meshy, fal.ai or a free Hugging Face option), or build a quick blocky version for free.
 

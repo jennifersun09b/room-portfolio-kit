@@ -18,17 +18,16 @@ RoomKit Studio is a friendly builder that opens in your web browser. You fill in
 
 Your browser opens RoomKit Studio. Keep the small black window open while you work. Close that window when you're finished.
 
-## Make your portfolio in six steps
-1. **Who are you?** Pick the closest match: designer, artist, shop, streamer, student, writer, teacher, or couple/gift. Studio suggests a room, the right links and picture sizes. Nothing is locked.
+## Make your portfolio in five steps
+1. **You & your room.** Pick who it's for: designer, artist, shop, streamer, student, writer, teacher, or couple/gift. The rooms that suit you appear right below, with the best match marked, and Studio fills in the right links and picture sizes. Click a room, then a colour theme. Prefer to browse? Open **All 17 rooms** or **Themed rooms**. **Shuffle the little things** rearranges books and props, so your room looks like no one else's. Nothing is locked.
 2. **Your details.** Add your name, what you do, one line about you, and your links (email, website, Behance, Instagram, Etsy, Ko-fi, Twitch and more). Studio tells you straight away if your name is too long for the room's sign. You can turn on your own brand colour if you like.
 3. **Your projects.** Drag pictures of your work onto the page, then give each one a title, a sentence and a link. Drag the handle to change the order. The first project goes on the main screen. Wide pictures (16:10) look best.
-4. **Choose a room.** Browse every room and click a colour theme to see it. **Shuffle the little things** rearranges books and props, so your room looks like no one else's.
-5. **Make it yours** (optional). Swap any piece of furniture for your own. Drop in a photo of your chair, plant or pet, or a 3D model (.glb, .obj, .fbx or .stl). For a photo, choose how Studio builds it:
+4. **Make it yours** (optional). Swap any piece of furniture for your own. Drop in a photo of your chair, plant or pet, or a 3D model (.glb, .obj, .fbx or .stl). For a photo, choose how Studio builds it:
    - **AI 3D model** (best look): needs a key from an AI service. Paste it under **Settings**.
    - **Quick blocky version**: free and instant, made from simple shapes in your photo's colours.
 
    You can also turn the piece, resize it, and choose whether it matches the room's colours.
-6. **Build & publish.**
+5. **Build & publish.**
    1. Start with a **Quick preview**, about a minute, to check everything. Then make **Final quality** for sharing.
    2. Leave **Include the 3D website** on if you want visitors to turn and click your room.
    3. Tick the picture sizes you need: link preview, Instagram, LinkedIn banner, Behance, Dribbble, story, or 4K stream background.

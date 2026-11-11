@@ -335,6 +335,21 @@ input::placeholder, textarea::placeholder { color: color-mix(in srgb, var(--mute
 .rc-soon .ic { width: 32px; height: 32px; }
 .badge.new { left: auto; right: 10px; top: 10px; background: linear-gradient(90deg, #E86A92, #9B5CF6); }
 .badge.chosen { top: 10px; left: 10px; background: var(--primary); font-size: 12px; padding: 4px 10px; }
+.badge.best { left: auto; right: 10px; top: 10px; background: #1F9D6B; font-size: 12px; padding: 4px 10px; }
+
+/* step 1: who it's for + room */
+.who-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.who-label { font: 650 14px var(--font); color: var(--ink-2); }
+.persona-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.pchip { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 13px; border-radius: 99px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); font: 600 13px var(--font); cursor: pointer; transition: border-color .15s, background .15s; }
+.pchip .ic { width: 15px; height: 15px; color: color-mix(in srgb, var(--tint) 80%, var(--ink)); }
+.pchip:hover { border-color: color-mix(in srgb, var(--tint) 55%, var(--line)); }
+.pchip.on { border-color: var(--tint); background: color-mix(in srgb, var(--tint) 14%, var(--surface)); }
+.persona-extras { display: flex; gap: 6px; align-items: flex-start; margin: 12px 0 0; color: var(--muted); font-size: 13.5px; }
+.persona-extras .ic { flex: none; margin-top: 2px; color: #1F9D6B; }
+.room-pick { margin-top: 28px; scroll-margin-top: 80px; }
+.pick-h { display: flex; flex-direction: column; gap: 2px; font-size: 20px; margin: 0 0 12px; }
+.pick-h small { font: 500 14px var(--font); color: var(--muted); }
 .rc-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .rc-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
 .rc-head h3 { font-size: 17px; }

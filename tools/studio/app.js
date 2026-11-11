@@ -12,10 +12,9 @@
   const MODEL_EXT = ['glb', 'gltf', 'obj', 'fbx', 'stl'];
 
   const STEPS = [
-    { id: 'persona', title: 'Who are you?', icon: 'user' },
+    { id: 'persona', title: 'You & your room', icon: 'user' },
     { id: 'profile', title: 'Your details', icon: 'idcard' },
     { id: 'projects', title: 'Your projects', icon: 'image' },
-    { id: 'room', title: 'Choose a room', icon: 'cube' },
     { id: 'furnish', title: 'Make it yours', icon: 'sofa' },
     { id: 'build', title: 'Build & publish', icon: 'sparkles' },
   ];
@@ -203,13 +202,16 @@
   function stepState(id) {
     const p = S.profile, st = S.studio;
     switch (id) {
-      case 'persona': return st.persona ? { done: true, sub: persona()?.label || '' } : { done: false, sub: 'Pick what fits you' };
+      case 'persona': {
+        const r = room();
+        if (r) return { done: true, sub: `${r.name} · ${theme(r)?.label || ''}` };
+        return { done: false, sub: st.persona ? `${persona()?.label || ''} · pick a room` : 'Who it’s for and your room' };
+      }
       case 'profile': return p.name ? { done: nameCheck().level !== 'error', sub: p.name } : { done: false, sub: 'Name, links, colours' };
       case 'projects': {
         const n = (p.projects || []).filter((x) => x.image).length;
         return { done: n > 0, sub: n ? `${n} with pictures` : 'Pictures of your work' };
       }
-      case 'room': { const r = room(); return r ? { done: true, sub: `${r.name} · ${theme(r)?.label || ''}` } : { done: false, sub: 'Pick your room' }; }
       case 'furnish': { const n = (st.swaps || []).length; return { done: n > 0, optional: true, sub: n ? `${n} of your own` : 'Optional' }; }
       case 'build': return st.last_build ? { done: true, sub: `Built ${ago(st.last_build.when)}` } : { done: false, sub: 'Pictures + website' };
       default: return { done: false, sub: '' };
@@ -297,7 +299,7 @@
       S.rooms = r.rooms || [];
       S.roomsScanning = r.scanning;
       if (before !== JSON.stringify(S.rooms.map((x) => [x.id, x.source, x.thumb])) && S.pid) {
-        if (['room', 'furnish', 'persona'].includes(S.step)) renderMain();
+        if (['furnish', 'persona'].includes(S.step)) renderMain();
         renderSide();
       }
       if (r.scanning) setTimeout(pollRooms, 2500);
@@ -315,7 +317,8 @@
     if (!S.studio.room && S.profile.room) S.studio.room = S.profile.room;
     if (!S.studio.theme && S.profile.theme) S.studio.theme = S.profile.theme;
     S.outputs = data.outputs || {};
-    const want = step || S.studio.step;
+    let want = step || S.studio.step;
+    if (want === 'room') want = 'persona';                          // the old separate room step now lives in step 1
     S.step = STEPS.some((s) => s.id === want) ? want : 'persona';
     S.job = null;
     safeStorage('set', 'roomkit.project', pid);
@@ -485,10 +488,9 @@
   function tipFor(step) {
     const per = persona();
     return {
-      persona: 'Your choice only fills in suggestions. Nothing is locked - you can change the room, links and sizes later.',
+      persona: 'Picking who it’s for puts the best rooms first and fills in links and picture sizes. Nothing is locked - you can change the room, theme, links and sizes any time.',
       profile: 'Keep your name short so it reads well on the sign. Visitors can click the sign, mug and shelves to reach your links.',
       projects: 'Wide pictures (16:10, like a laptop screen) look best. The first project goes on the main screen.',
-      room: per ? per.objects : 'Click a colour theme to see the room in different colours.',
       furnish: 'A photo of your own chair, plant or pet makes the room feel like yours. Photos taken straight on, on a plain background, work best.',
       build: 'Start with a Quick preview to check everything, then make the Final quality version to share.',
     }[step] || '';
@@ -519,6 +521,7 @@
   window.addEventListener('hashchange', onHashChange);           // also fires for Back / Forward between steps
 
   function go(step, fromHistory) {
+    if (step === 'room') step = 'persona';
     if (!STEPS.some((s) => s.id === step)) return;
     S.step = step;
     S.studio.step = step;
@@ -542,51 +545,48 @@
   function renderMain() {
     const el = $('#main');
     if (!el) return;
-    const fn = { persona: viewPersona, profile: viewProfile, projects: viewProjects, room: viewRoom, furnish: viewFurnish, build: viewBuild }[S.step];
+    const fn = { persona: viewPersona, profile: viewProfile, projects: viewProjects, furnish: viewFurnish, build: viewBuild }[S.step];
     fn(el);
     bindNav(el);
   }
+
+  const stepNo = (id) => `Step ${STEPS.findIndex((s) => s.id === id) + 1} of ${STEPS.length}`;
 
   function header(kicker, title, lead) {
     return `<header class="view-head"><p class="kicker">${esc(kicker)}</p><h1>${esc(title)}</h1>${lead ? `<p class="lead">${lead}</p>` : ''}</header>`;
   }
 
-  // ------------------------------------------------------------------ step 1: persona
+  // ------------------------------------------------------------------ step 1: who it's for + room
+  // One step: pick who the portfolio is for, and the rooms that suit them appear right below.
   function viewPersona(el) {
     const cur = S.studio.persona;
-    const cards = S.personas.map((p) => {
-      const sug = firstRoom(p);
-      return `<button class="persona ${cur === p.id ? 'selected' : ''}" data-persona="${p.id}" aria-pressed="${cur === p.id}" style="--tint:${esc(p.tint)}">
-        <span class="p-icon">${icon(p.icon)}</span>
-        <span class="p-text"><strong>${esc(p.label)}</strong><small>${esc(p.blurb)}</small></span>
-        ${sug ? `<span class="p-room">${icon('cube', 'sm')}${esc(sug.room.name)}</span>` : ''}
-        <span class="p-check">${icon('check')}</span>
-      </button>`;
-    }).join('');
     const per = persona();
-    let plan = '';
-    if (per) {
-      const sug = firstRoom(per);
-      const img = sug ? themeImage(sug.theme) : '';
-      plan = `<section class="card plan">
-        ${img ? `<img class="plan-img" src="${esc(img)}" alt="">` : ''}
-        <div class="plan-body">
-          <h2>Here’s what we suggest for a ${esc(per.label.toLowerCase())}</h2>
-          <dl>
-            <dt>Room</dt><dd>${sug ? `${esc(sug.room.name)} · ${esc(sug.theme ? sug.theme.label : '')}` : 'Any room'}</dd>
-            <dt>Links</dt><dd class="chips">${per.links.map((l) => `<span class="chip">${esc((S.linkTypes[l] || {}).label || l)}</span>`).join('')}</dd>
-            <dt>Picture sizes</dt><dd class="chips">${per.exports.map((x) => `<span class="chip">${esc((S.exportsInfo[x] || {}).label || x)}</span>`).join('')}</dd>
-            <dt>In the room</dt><dd>${esc(per.objects)}</dd>
-          </dl>
-          <p class="muted small">${S.studio.touched.room ? 'You already chose a room, so we’ll keep it.' : 'You can change all of this in the next steps.'}</p>
-        </div>
-      </section>`;
-    }
-    el.innerHTML = header('Step 1 of 6', 'Who is this portfolio for?', 'Pick the closest match. We’ll suggest a room, the links people will want, and the picture sizes you’ll need.')
-      + `<div class="persona-grid" role="list">${cards}</div>${plan}` + navButtons('', 'profile', per ? 'Use these suggestions' : 'Skip for now');
-    $$('[data-persona]', el).forEach((b) => b.onclick = () => { applyPersona(b.dataset.persona); viewPersona(el); bindNav(el); });
-    const next = $('[data-go="profile"]', el);
-    if (next) next.onclick = () => go('profile');
+    const who = per
+      ? `<div class="who-row"><span class="who-label">Who is it for?</span><div class="persona-chips" role="group" aria-label="Who is this portfolio for">${S.personas.map((p) =>
+          `<button class="pchip ${cur === p.id ? 'on' : ''}" data-persona="${p.id}" aria-pressed="${cur === p.id}" style="--tint:${esc(p.tint)}">${icon(p.icon, 'sm')}${esc(shortLabel(p))}</button>`).join('')}</div></div>
+        <p class="persona-extras">${icon('check', 'sm')}Set up for a ${esc(per.label.toLowerCase())}: links for ${per.links.map((l) => esc((S.linkTypes[l] || {}).label || l)).join(', ')} · picture sizes ${per.exports.map((x) => esc((S.exportsInfo[x] || {}).label || x)).join(', ')}.</p>`
+      : `<div class="persona-grid" role="list">${S.personas.map((p) => {
+          const sug = firstRoom(p);
+          return `<button class="persona" data-persona="${p.id}" aria-pressed="false" style="--tint:${esc(p.tint)}">
+            <span class="p-icon">${icon(p.icon)}</span>
+            <span class="p-text"><strong>${esc(p.label)}</strong><small>${esc(p.blurb)}</small></span>
+            ${sug ? `<span class="p-room">${icon('cube', 'sm')}${esc(sug.room.name)}</span>` : ''}
+            <span class="p-check">${icon('check')}</span>
+          </button>`;
+        }).join('')}</div>`;
+    el.innerHTML = header(stepNo('persona'), 'Who is it for, and which room?',
+      per ? 'Here are the rooms that suit you best. Pick one and a colour theme - you can switch any time.'
+          : 'Pick the closest match and we’ll show the rooms that suit you best, with the right links and picture sizes. Or scroll down and choose any room.')
+      + who + `<section id="room-pick" class="room-pick" aria-label="Choose your room"></section>`
+      + navButtons('', 'profile', room() ? 'Continue' : 'Skip for now');
+    $$('[data-persona]', el).forEach((b) => b.onclick = () => {
+      applyPersona(b.dataset.persona); S.roomFilter = 'for-you';
+      viewPersona(el); bindNav(el); renderSide();
+      const box = $('#room-pick', el);
+      if (box && !per) box.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    });
+    if (!per && S.roomFilter === 'for-you') S.roomFilter = 'all';
+    renderRoomPicker($('#room-pick', el), el);
   }
 
   function firstRoom(p) {
@@ -619,7 +619,7 @@
     const t = theme();
     const brand = S.profile.brand_color || S.studio.brand_color_suggest || (t && t.colors.accent_1) || '#5B4CF0';
     const roomColors = t ? ['main', 'accent_1', 'accent_2', 'accent_3'].map((k) => t.colors[k]).filter(Boolean) : [];
-    el.innerHTML = header('Step 2 of 6', 'Your details', 'This goes on the sign in your room and at the top of your website.') + `
+    el.innerHTML = header(stepNo('profile'), 'Your details', 'This goes on the sign in your room and at the top of your website.') + `
       <section class="card form-card">
         <h2 class="card-title">${icon('idcard')}The basics</h2>
         <div class="grid2">
@@ -800,7 +800,7 @@
     const per = persona();
     const r = room();
     const spots = r && r.hooks ? r.hooks.pictures : 0;
-    el.innerHTML = header('Step 3 of 6', 'Your projects', 'Add pictures of your work. They appear on the screens, frames and posters in your room, and as cards on your website.') + `
+    el.innerHTML = header(stepNo('projects'), 'Your projects', 'Add pictures of your work. They appear on the screens, frames and posters in your room, and as cards on your website.') + `
       <div class="proj-hint">${icon('info')}<span>${spots ? `The ${esc(r.name)} has <b>${spots} picture spots</b>. ` : ''}Add 3–6 projects for the best look. Drag the handle to change the order - the first one goes on the main screen.</span></div>
       <ol class="projects" id="projects"></ol>
       <div class="dropzone big" id="proj-drop" tabindex="0" role="button" aria-label="Add projects: drop pictures here or press to choose files">
@@ -809,7 +809,7 @@
       </div>
       <div class="inline-actions"><button class="btn ghost" id="add-empty">${icon('plus')}Add a project without a picture</button></div>
       ${per ? `<section class="card ideas"><h2 class="card-title">${icon('sparkles')}Not sure what to show?</h2><p class="muted">Ideas for a ${esc(per.label.toLowerCase())}:</p><ul>${per.project_ideas.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>` : ''}
-      ${navButtons('profile', 'room')}`;
+      ${navButtons('profile', 'furnish')}`;
     renderProjectList();
     const drop = $('#proj-drop', el), files = $('#proj-files', el);
     drop.onclick = () => files.click();
@@ -941,10 +941,11 @@
     const btn = $(`.proj-card[data-i="${to}"] .p-title`); if (btn) btn.focus();
   }
 
-  // ------------------------------------------------------------------ step 4: room gallery
-  function viewRoom(el) {
+  // ------------------------------------------------------------------ room gallery (part of step 1)
+  function renderRoomPicker(box, page) {
+    if (!box) return;
     const per = persona();
-    const filters = [['for-you', per ? `For a ${per.label.toLowerCase()}` : 'Suggested'], ['all', 'All rooms'], ['themed', 'Themed rooms']];
+    const filters = (per ? [['for-you', `Best for a ${per.label.toLowerCase()}`]] : []).concat([['all', `All ${S.rooms.length} rooms`], ['themed', 'Themed rooms']]);
     let list = S.rooms.slice();
     if (S.roomFilter === 'themed') list = list.filter((r) => r.themed);
     if (S.roomFilter === 'for-you') {
@@ -956,6 +957,7 @@
     }
     const cur = S.studio.room;
     if (cur && !list.some((r) => r.id === cur) && room(cur)) list.unshift(room(cur));
+    const best = per && S.roomFilter === 'for-you' ? (firstRoom(per) || {}).room : null;
     const cards = list.map((r) => {
       const sel = r.id === cur;
       const t = sel ? theme(r) : (r.themes.find((x) => x.default) || r.themes[0]);
@@ -964,7 +966,7 @@
         <button class="rc-pick" data-pick="${r.id}" aria-pressed="${sel}" aria-label="Choose the ${esc(r.name)}">
           <span class="rc-img" style="${t ? `background:linear-gradient(135deg, ${esc(t.colors.wall || '#eee')}, ${esc(t.colors.floor || '#ddd')})` : ''}">
             ${img ? `<img src="${esc(img)}" alt="" loading="lazy">` : `<span class="rc-soon">${icon('cube')}Preview coming soon</span>`}
-            ${r.themed ? '<span class="badge new">New · Themed</span>' : ''}
+            ${best && best.id === r.id && !sel ? `<span class="badge best">${icon('sparkles', 'sm')}Best match</span>` : r.themed ? '<span class="badge new">New · Themed</span>' : ''}
             ${sel ? `<span class="badge chosen">${icon('check', 'sm')}Your room</span>` : ''}
           </span>
         </button>
@@ -980,14 +982,14 @@
       </article>`;
     }).join('');
     const r = room();
-    el.innerHTML = header('Step 4 of 6', 'Choose your room', 'Every room is furnished with pieces modelled on real furniture. Pick one, then a colour theme.') + `
+    box.innerHTML = `<h2 class="pick-h">${per ? 'Rooms for you' : 'Choose your room'}<small>Every room is furnished with pieces modelled on real furniture.</small></h2>
       <div class="filters" role="tablist">${filters.map(([id, label]) => `<button role="tab" class="filter ${S.roomFilter === id ? 'on' : ''}" aria-selected="${S.roomFilter === id}" data-filter="${id}">${esc(label)}</button>`).join('')}
         ${S.roomsScanning ? `<span class="scan">${icon('refresh', 'sm spin')}Checking rooms…</span>` : ''}</div>
       <div class="room-grid">${cards || '<p class="muted">No rooms found in templates/.</p>'}</div>
       ${r ? `<section class="card seed-card"><div><h2 class="card-title">${icon('dice')}Shuffle the little things</h2><p class="muted">Books, bottles, plants and props are arranged differently for each number, so your room won’t look like anyone else’s.</p></div>
         <div class="seed-ctl"><button class="icon-btn" id="seed-dn" aria-label="Previous arrangement">${icon('left')}</button><output id="seed-val" aria-live="polite">Arrangement #${esc(S.studio.seed || 1)}</output><button class="icon-btn" id="seed-up" aria-label="Next arrangement">${icon('right')}</button><button class="btn ghost" id="seed-rand">${icon('dice')}Surprise me</button></div></section>` : ''}
-      ${navButtons('projects', 'furnish')}`;
-    $$('[data-filter]', el).forEach((b) => b.onclick = () => { S.roomFilter = b.dataset.filter; viewRoom(el); bindNav(el); });
+`;
+    $$('[data-filter]', box).forEach((b) => b.onclick = () => { S.roomFilter = b.dataset.filter; renderRoomPicker(box, page); });
     const pick = (rid, tid) => {
       const rr = room(rid);
       const changedRoom = S.studio.room !== rid;
@@ -999,10 +1001,12 @@
         if (keep.length !== S.studio.swaps.length) toast(`${S.studio.swaps.length - keep.length} furniture swap(s) don’t fit this room and were set aside.`, 'info');
         S.studio.swaps = keep;
       }
-      changed(); viewRoom(el); bindNav(el);
+      changed(); renderRoomPicker(box, page); renderSide();
+      const next = page && $('.step-nav [data-go="profile"]', page);
+      if (next) next.innerHTML = `Continue${icon('right')}`;
     };
-    $$('[data-pick]', el).forEach((b) => b.onclick = () => pick(b.dataset.pick, S.studio.room === b.dataset.pick ? S.studio.theme : ''));
-    $$('[data-theme]', el).forEach((b) => b.onclick = () => pick(b.dataset.room, b.dataset.theme));
+    $$('[data-pick]', box).forEach((b) => b.onclick = () => pick(b.dataset.pick, S.studio.room === b.dataset.pick ? S.studio.theme : ''));
+    $$('[data-theme]', box).forEach((b) => b.onclick = () => pick(b.dataset.room, b.dataset.theme));
     const setSeed = (n) => { S.studio.seed = Math.max(1, Math.min(9999, n)); $('#seed-val').textContent = `Arrangement #${S.studio.seed}`; changed(); };
     if (r) {
       $('#seed-dn').onclick = () => setSeed((S.studio.seed || 1) - 1);
@@ -1016,14 +1020,14 @@
   function viewFurnish(el) {
     const r = room();
     if (!r) {
-      el.innerHTML = header('Step 5 of 6', 'Make it yours', '') + `<div class="empty">${icon('cube')}<h2>Choose a room first</h2><p>Then you can swap its furniture for your own.</p><button class="btn primary" data-go="room">Choose a room</button></div>`;
+      el.innerHTML = header(stepNo('furnish'), 'Make it yours', '') + `<div class="empty">${icon('cube')}<h2>Choose a room first</h2><p>Then you can swap its furniture for your own.</p><button class="btn primary" data-go="persona">Choose a room</button></div>`;
       return;
     }
     const keys = S.status.keys || {};
     const anyKey = keys.meshy?.set || keys.fal?.set || keys.hf?.set;
     const feats = S.status.features || {};
     const t = theme(r);
-    el.innerHTML = header('Step 5 of 6', 'Make it yours', 'Swap any piece of furniture for your own - drop a photo of your chair, plant or pet, or a 3D model. This step is optional.') + `
+    el.innerHTML = header(stepNo('furnish'), 'Make it yours', 'Swap any piece of furniture for your own - drop a photo of your chair, plant or pet, or a 3D model. This step is optional.') + `
       <div class="furnish-top card">
         ${themeImage(t) ? `<img src="${esc(themeImage(t))}" alt="">` : ''}
         <div>
@@ -1038,7 +1042,7 @@
         </div>
       </div>
       <ul class="slots" id="slots">${r.slots.map((s) => slotRow(s)).join('')}</ul>
-      ${navButtons('room', 'build')}`;
+      ${navButtons('projects', 'build')}`;
     $('#keys-btn', el).onclick = () => openSettings('keys');
     bindSlots(el, r);
   }
@@ -1186,7 +1190,7 @@
     if (S.job && (S.job.state === 'running' || S.job.state === 'error' || S.job.state === 'cancelled')) return viewJob(el);
     if (b.state !== 'ok') {
       const prev = S.studio.last_build && S.outputs.index ? resultsHtml(S.studio.last_build) : '';
-      el.innerHTML = header('Step 6 of 6', 'Build & publish', '') + blenderCard(b) + prev + navButtons('furnish', '');
+      el.innerHTML = header(stepNo('build'), 'Build & publish', '') + blenderCard(b) + prev + navButtons('furnish', '');
       bindBlenderCard(el);
       if (prev) bindResults(el);
       return;
@@ -1204,7 +1208,7 @@
         <span class="exp-box" style="aspect-ratio:${x.size.replace(/\s/g, '').replace('×', '/')}"></span>
         <span class="exp-text"><strong>${esc(x.label)}</strong><small>${esc(x.size)}</small><small class="use">${!supported ? '<span class="soon">Next kit update</span>' : esc(x.use)}</small></span></label>`;
     }).join('');
-    el.innerHTML = header('Step 6 of 6', 'Build & publish', 'RoomKit opens Blender in the background, puts you in the room and takes the pictures. You can keep working while it runs.') + `
+    el.innerHTML = header(stepNo('build'), 'Build & publish', 'RoomKit opens Blender in the background, puts you in the room and takes the pictures. You can keep working while it runs.') + `
       ${lb ? resultsHtml(lb) : ''}
       <section class="card build-card" id="build-card">
         <h2 class="card-title">${icon('sparkles')}${lb ? 'Build again' : 'Build settings'}</h2>
@@ -1244,7 +1248,7 @@
     const nc = nameCheck();
     if (nc.level === 'error') out.push({ level: 'error', msg: nc.msg, step: 'profile' });
     else if (nc.level === 'warn') out.push({ level: 'warn', msg: 'Your name will be made a little smaller to fit the sign.', step: 'profile' });
-    if (!room()) out.push({ level: 'error', msg: 'Choose a room first.', step: 'room' });
+    if (!room()) out.push({ level: 'error', msg: 'Choose a room first.', step: 'persona' });
     const pics = (p.projects || []).filter((x) => x.image).length;
     if (!pics) out.push({ level: 'warn', msg: 'No project pictures yet - the room will show its own sample pictures.', step: 'projects' });
     if (!Object.keys(p.links || {}).length) out.push({ level: 'warn', msg: 'No links yet, so visitors can’t reach you.', step: 'profile' });
@@ -1325,7 +1329,7 @@
     const j = S.job;
     if (j.state === 'error' || j.state === 'cancelled') {
       const err = j.error || { title: 'Build cancelled', message: 'Nothing was changed. Your previous results are still there.', hint: '' };
-      el.innerHTML = header('Step 6 of 6', 'Build & publish', '') + `
+      el.innerHTML = header(stepNo('build'), 'Build & publish', '') + `
         <section class="card job-card ${j.state}">
           <div class="err-head">${icon(j.state === 'error' ? 'alert' : 'info')}<div><h2>${esc(err.title)}</h2><p>${esc(err.message)}</p>${err.hint ? `<p class="hint">${esc(err.hint)}</p>` : ''}</div></div>
           ${jobSteps(j)}
@@ -1337,7 +1341,7 @@
       bindLogToggle();
       return;
     }
-    el.innerHTML = header('Step 6 of 6', 'Building your portfolio', 'You can keep editing other steps while this runs. We’ll play a little sound when it’s done.') + `
+    el.innerHTML = header(stepNo('build'), 'Building your portfolio', 'You can keep editing other steps while this runs. We’ll play a little sound when it’s done.') + `
       <section class="card job-card" aria-busy="true">
         <div class="job-top"><div><p class="big-pct" id="pct">0%</p><p class="muted" id="eta">Starting Blender…</p></div>
           <button class="btn ghost" id="cancel">${icon('stop')}Cancel</button></div>
